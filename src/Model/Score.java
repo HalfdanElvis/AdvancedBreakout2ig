@@ -81,7 +81,7 @@ public class Score {
         for (int l=0; l<string.length;l++){
             String scores[] = arrayHighScore[l].split("=");
             String scoreStr = scores[1];
-            Long score = Long.valueOf(scoreStr);
+            Long score = Long.valueOf(scoreStr.trim());
             arrInt[l] = score;
         }
         long temp;

@@ -96,7 +96,7 @@ public class HighscoreView extends Pane{
 
             for (int i=0; i<Math.min(10,Highscores.length);i++){
                 String scores[] = Highscores[i].split("=");
-                String score = scores[1];
+                String score = scores[1].trim();
                 Label labelscore = new Label(score);
                 if(Long.valueOf(score)>99999999){
 
