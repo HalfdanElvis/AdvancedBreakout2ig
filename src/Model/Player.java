@@ -27,10 +27,10 @@ public class Player {
 
     public void addLives(int extra) {
         this.lives += extra;
-        this.maxLives = Math.max(this.lives, this.maxLives);
+        this.maxLives += extra;
     }
 
-    public void fullHP(int lives) {
+    public void fullHP() {
         this.lives = this.maxLives;
     }
 

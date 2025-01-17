@@ -25,6 +25,9 @@ public class Card extends Button {
     }
 
     public void applyUpgrades(Ball ball, Platform platform, Player player) {
+        if (name == "Full Hp") {
+            player.fullHP();
+        }
         ball.addAttack(ballAttack);
         ball.addOGVelocity(ballSpeed);
         ball.addMaxPierce(ballPierce);
