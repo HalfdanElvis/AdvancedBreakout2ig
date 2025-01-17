@@ -141,7 +141,7 @@ public class GameView extends Pane{
     }
 
     public void initializeDeathScreen(double sceneWidth, double sceneHeight) {
-        Score.writeHighScore(player);
+        Highscore.writeHighscore(player);
         Text deathMsg = new Text("You died.");
         deathMsg.setStyle("-fx-font-size: 36px; -fx-fill: white;");
         Text deathScore = new Text("Score " + player.getName()+": "+(int)(player.getCurrentScore()));

@@ -22,9 +22,9 @@ public class HighscoreView extends Pane{
         bg.setFitHeight(OptionsModel.getSceneHeight());
 
 
-        Score.readHighScore();
-        String[] Highscores = Score.getHighscore();
-        Highscores = Score.arrayRankArrange(Highscores);
+        Highscore.readHighscore();
+        String[] Highscores = Highscore.getHighscore();
+        Highscores = Highscore.arrayRankArrange(Highscores);
 
         Pane pane = new Pane();
         int paneWidth = 300;
