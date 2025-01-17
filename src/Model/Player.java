@@ -26,10 +26,8 @@ public class Player {
     }
 
     public void addLives(int extra) {
-        if (this.lives + extra > this.maxLives) {
-            this.maxLives = this.lives;
-        }
         this.lives += extra;
+        this.maxLives = Math.max(this.lives, this.maxLives);
     }
 
     public void fullHP(int lives) {
