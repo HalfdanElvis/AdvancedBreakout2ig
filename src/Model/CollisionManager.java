@@ -5,8 +5,6 @@ import View.GameView;
 import java.util.ArrayList;
 
 public class CollisionManager {
-
-
     public static void blockCollision(Ball ball, ArrayList<Block> blockList, GameView gameView) {
         int hitTop = 0;
         int hitBottom = 0;
@@ -44,8 +42,9 @@ public class CollisionManager {
                     // Play sfx
                     SceneManager.getInstance().playBlockBreakSFX();
 
-                    // Increases Score
-                    Score.scoreAdder(blockList.get(i), gameView.getPlayer());
+                    // Increases Score and Combo
+                    Score.scoreAdder(blockList.get(i), gameView.getPlayer(), ball.getCombo());
+                    ball.addCombo();
 
                     // Remove Block
                     blockList.remove(i);
@@ -152,6 +151,7 @@ public class CollisionManager {
                 if (ball.getY()<platform.getY()+platform.getHeight()){
                     
                     ball.setCurrentPierce(ball.getMaxPierce());
+                    ball.resetCombo();
                     ball.setInPlatform(true); 
 
                     // Play sfx

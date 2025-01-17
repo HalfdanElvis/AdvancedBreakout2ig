@@ -11,6 +11,7 @@ public class Ball extends Circle {
     private double maxPierce = 0;
     private double currentPierce = maxPierce;
     private double angle;
+    private int combo = 0;
     private boolean inPlatform = false;
     private static double defaultRadius = 20;
 
@@ -73,9 +74,23 @@ public class Ball extends Circle {
     public void addOGVelocity(double n) {
         this.ogVelocity += n;
     }
+    
+
+    public void addCombo() {
+        this.combo++;
+    }
+
+    public void resetCombo() {
+        this.combo = 0;
+    }
+
+    public int getCombo() {
+        return this.combo;
+    }
 
     //Resets Balls position and Velocity when changing level
     public void reset(Platform platform) {
+        resetCombo();
         setX(platform.getX()+(platform.getWidth()/2));
         setY(platform.getY()-getRadius());
         setVelocity(ogVelocity);

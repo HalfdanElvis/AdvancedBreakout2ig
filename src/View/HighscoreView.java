@@ -51,7 +51,7 @@ public class HighscoreView extends Pane{
             headRank.setMaxHeight(30);;
             highscoreBox1.getChildren().add(headRank);
 
-            for (int i=1; i<Math.max(11,Highscores.length);i++){
+            for (int i=1; i<Math.min(11,Highscores.length+1);i++){
                 String rank = String.valueOf(i);
                 Label labelrank = new Label(rank);
                 labelrank.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
@@ -73,7 +73,8 @@ public class HighscoreView extends Pane{
             highscoreBox2.getChildren().add(headName);
             
             for (int i=0; i<Math.min(10,Highscores.length);i++){
-                String name = Score.cleanString(Highscores[i]);
+                String names[] = Highscores[i].split("=");
+                String name = names[0];
                 Label labelname = new Label(name);
                 labelname.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
                 labelname.setMinHeight(30);
@@ -94,7 +95,8 @@ public class HighscoreView extends Pane{
             highscoreBox3.getChildren().addAll(headScore);
 
             for (int i=0; i<Math.min(10,Highscores.length);i++){
-                String score = String.valueOf(Score.stringToInt(Highscores[i]));
+                String scores[] = Highscores[i].split("=");
+                String score = scores[1];
                 Label labelscore = new Label(score);
                 if(Long.valueOf(score)>99999999){
 

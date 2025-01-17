@@ -10,8 +10,8 @@ public class Score {
     static String[] arrayHighScore;
 
     // Tør ikke pille, forstår det ikke
-    public static void scoreAdder(Block block, Player player){
-        player.updateCurrentScore(block.getScore());
+    public static void scoreAdder(Block block, Player player, int combo){
+        player.updateCurrentScore((long) (block.getScore()+combo*block.getScore()*0.5));
     }
     
     public static void writeHighScore(Player player){
@@ -22,7 +22,7 @@ public class Score {
         String name = player.getName();
         try{
             FileWriter highScoreWrite = new FileWriter(pathToFile, true);
-            highScoreWrite.write(name+score+"\n");
+            highScoreWrite.write(name+"="+score+"\n");
             highScoreWrite.close();
 
         } catch (IOException e){
@@ -38,6 +38,7 @@ public class Score {
             String highscores = Files.readString(Paths.get(pathToFile)); //this line is the problem
             String dividers = "\n";
             arrayHighScore = highscores.split(dividers);
+
             if (arrayHighScore.length<10){
                 String[] tempArr = new String[10];
                 for (int i = 0; i<arrayHighScore.length;i++){
@@ -48,6 +49,7 @@ public class Score {
                 }
                 arrayHighScore = tempArr;
             }
+            
         } catch(IOException e){
             System.out.println("Error in reading highscore");
             e.printStackTrace();
@@ -55,10 +57,10 @@ public class Score {
         for (int i = 0; i<arrayHighScore.length; i++){
             if (cleanString(arrayHighScore[i]).length()>6){
                 System.out.println("Only names of 5 letters are allowed in line " +(i+1));
-                arrayHighScore[i]="Slimy 0000";
+                arrayHighScore[i]="Slimy=0000";
             }
             if (arrayHighScore[i].isEmpty() == true){
-                arrayHighScore[i] = "Slime 0000";
+                arrayHighScore[i] = "Slime=0000";
             }
         }
     }
@@ -77,7 +79,10 @@ public class Score {
     public static String[] arrayRankArrange(String[] string){
         long[] arrInt = new long[string.length];
         for (int l=0; l<string.length;l++){
-            arrInt[l] = stringToInt(string[l]);
+            String scores[] = arrayHighScore[l].split("=");
+            String scoreStr = scores[1];
+            Long score = Long.valueOf(scoreStr);
+            arrInt[l] = score;
         }
         long temp;
         String temp2;

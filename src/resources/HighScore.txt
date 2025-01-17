@@ -1,7 +1,2 @@
-wajhdauw0
-hej0
-hej40
-12340
-99999170
-70
-Simon70
+bo=30
+bo123=45
