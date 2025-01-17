@@ -9,20 +9,18 @@ import java.nio.file.Paths;
 
 public class Highscore {
     static String[] arrayHighscore;
+    private static String filePath = System.getProperty("user.dir")+"/highscore.txt";
     
     public static void writeHighscore(Player player){
-        Path path = Paths.get("Highscore.java").toAbsolutePath().getParent();
-        String pathToFile=String.valueOf(path);
-        pathToFile = pathToFile+"/src/resources/Highscore.txt";
         String score = ""+(long)(player.getCurrentScore());
         String name = player.getName();
         try{
-            FileWriter highscoreWrite = new FileWriter(pathToFile, true);
+            FileWriter highscoreWrite = new FileWriter(filePath, true);
             highscoreWrite.write(name+"="+score+"\n");
             highscoreWrite.close();
 
         } catch (IOException e){
-            File file = new File(pathToFile);
+            File file = new File(filePath);
             System.out.println("hej");
             try {
                 file.createNewFile();
@@ -31,10 +29,7 @@ public class Highscore {
         }
     }
     public static void readHighscore(){
-        Path path = Paths.get("Highscore.java").toAbsolutePath().getParent();
-        String pathToFile=String.valueOf(path);
-        pathToFile = pathToFile+"/src/resources/Highscore.txt";
-        File file = new File(pathToFile);
+        File file = new File(filePath);
         if (!file.isFile()) {
             try {
                 file.createNewFile();
@@ -43,7 +38,7 @@ public class Highscore {
             }
         }
         try{
-            String highscores = Files.readString(Paths.get(pathToFile)); //this line is the problem
+            String highscores = Files.readString(Paths.get(filePath)); //this line is the problem
             String dividers = "\n";
             arrayHighscore = highscores.split(dividers);
 
