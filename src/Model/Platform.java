@@ -4,21 +4,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Platform extends Rectangle {
-    private final double ogPlatformWidth = OptionsModel.getSceneWidth() / 4;
-    private final double ogPlatformHeight = OptionsModel.getSceneHeight() / 30;
-    private final double ogX = OptionsModel.getSceneWidth() / 2 - ogPlatformWidth / 2;
-    private final double ogY = OptionsModel.getSceneHeight() * 0.8;
-    private static final double platformWidth = OptionsModel.getSceneWidth() / 4;
-    private static final double platformHeight = OptionsModel.getSceneHeight() / 30;
-    private static final double x = OptionsModel.getSceneWidth() / 2 - platformWidth / 2;
-    private static final double y = OptionsModel.getSceneHeight() * 0.8;
+    private static final double initialPlatformWidth = OptionsModel.getSceneWidth() / 5;
+    private static final double initialPlatformHeight = OptionsModel.getSceneHeight() / 30;
+    private static final double initialX = OptionsModel.getSceneWidth() / 2 - initialPlatformWidth / 2;
+    private static final double initialY = OptionsModel.getSceneHeight() * 0.8;
 
     private double velocity = 4;
     private boolean isMovingLeft;
     private boolean isMovingRight;
 
     public Platform() {
-        super(x, y, platformWidth, platformHeight);
+        super(initialX, initialY, initialPlatformWidth, initialPlatformHeight);
         setFill(Color.DARKGRAY); 
     }
 
@@ -29,10 +25,10 @@ public class Platform extends Rectangle {
         if (isMovingRight()) {
             setX(getX() + velocity);
         }
-        if (getX() < 0) {
-            setX(0);
-        } else if (getX() + getWidth() > OptionsModel.getSceneWidth()) {
-            setX(OptionsModel.getSceneWidth() - getWidth());
+        if (getX() < -getWidth()/2) {
+            setX(-getWidth()/2);
+        } else if (getX() + getWidth()/2 > OptionsModel.getSceneWidth()) {
+            setX(OptionsModel.getSceneWidth() - getWidth()/2);
         }
     }
 
@@ -45,15 +41,19 @@ public class Platform extends Rectangle {
     public void setMovingLeft(boolean bool) { this.isMovingLeft = bool; }
     public boolean isMovingRight() { return isMovingRight; }
     public void setMovingRight(boolean bool) { this.isMovingRight = bool; }
-    public double getOgplatformwidth() { return ogPlatformWidth; }
-    public double getOgplatformheight() { return ogPlatformHeight; }
-    public double getOgx() { return ogX; }
-    public double getOgy() { return ogY; }
 
-    //Resets Platforms position and Velocity when changing level
+    public static double getIntialPlatformWidth() {
+        return initialPlatformWidth;
+    }
+
+    public static double getIntialPlatformHeight() {
+        return initialPlatformHeight;
+    }
+
+    //Resets Platforms position and size when changing level
     public void reset() {
-        setWidth(Math.min(getWidth(), OptionsModel.getSceneWidth()/2));
-        setX(OptionsModel.getSceneWidth() / 2 - getWidth() / 2);
-        setY(OptionsModel.getSceneHeight() * 0.8);
+        setWidth(Math.min(getWidth(), OptionsModel.getSceneWidth()*0.4));
+        setX(initialX);
+        setY(initialY);
     }
 }

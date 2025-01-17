@@ -32,6 +32,9 @@ public class GameView extends Pane{
     private double sceneHeight = OptionsModel.getSceneHeight();
     private VBox nameScreen;
     private TextField nameField;
+    private String commonTextColor = "rgb(241, 241, 241)";
+    private String rareTextColor = "rgb(40, 183, 255)";
+    private String legendaryTextColor = "rgb(253, 229, 43)";
 
     // HUD
     private Text lives;
@@ -185,35 +188,62 @@ public class GameView extends Pane{
         legendaryList = Model.GenerateCards.generateLegendaryCards();
 
         Card upgradeButton1 = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
-        if (commonList.contains(upgradeButton1)) commonList.remove(upgradeButton1);
-        else if (rareList.contains(upgradeButton1)) rareList.remove(upgradeButton1);
-        else if (legendaryList.contains(upgradeButton1)) legendaryList.remove(upgradeButton1);
+        upgradeButton1.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+        if (commonList.contains(upgradeButton1)) {
+            upgradeButton1.setStyle("-fx-text-fill:"+commonTextColor);
+            commonList.remove(upgradeButton1);
+        }
+        else if (rareList.contains(upgradeButton1)) {
+            upgradeButton1.setStyle("-fx-text-fill:"+rareTextColor);
+            rareList.remove(upgradeButton1);
+        }
+        else if (legendaryList.contains(upgradeButton1)) {
+            upgradeButton1.setStyle("-fx-text-fill:"+legendaryTextColor);
+            legendaryList.remove(upgradeButton1);
+        } 
         upgradeButton1.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
         upgradeButton1.setText(upgradeButton1.getName());
-        upgradeButton1.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
         upgradeButton1.setOnAction(event -> {
             upgradeButton1.applyUpgrades(ball, platform, player);
             SceneManager.getInstance().levelUp();
         });
         Card upgradeButton2 = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
-        if (commonList.contains(upgradeButton2)) commonList.remove(upgradeButton2);
-        else if (rareList.contains(upgradeButton2)) rareList.remove(upgradeButton2);
-        else if (legendaryList.contains(upgradeButton2)) legendaryList.remove(upgradeButton2);
+        upgradeButton2.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+        if (commonList.contains(upgradeButton2)) {
+            upgradeButton2.setStyle("-fx-text-fill:"+commonTextColor);
+            commonList.remove(upgradeButton2);
+        }
+        else if (rareList.contains(upgradeButton2)) {
+            upgradeButton2.setStyle("-fx-text-fill:"+rareTextColor);
+            rareList.remove(upgradeButton2);
+        }
+        else if (legendaryList.contains(upgradeButton2)) {
+            upgradeButton2.setStyle("-fx-text-fill:"+legendaryTextColor);
+            legendaryList.remove(upgradeButton2);
+        }
         upgradeButton2.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
         upgradeButton2.setText(upgradeButton2.getName());
-        upgradeButton2.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
         upgradeButton2.setOnAction(event -> {
             upgradeButton2.applyUpgrades(ball, platform, player);
             SceneManager.getInstance().levelUp();
         });
 
         Card upgradeButton3 = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
-        if (commonList.contains(upgradeButton3)) commonList.remove(upgradeButton3);
-        else if (rareList.contains(upgradeButton3)) rareList.remove(upgradeButton3);
-        else if (legendaryList.contains(upgradeButton3)) legendaryList.remove(upgradeButton3);
+        upgradeButton3.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+        if (commonList.contains(upgradeButton3)) {
+            upgradeButton3.setStyle("-fx-text-fill:"+commonTextColor);
+            commonList.remove(upgradeButton3);
+        }
+        else if (rareList.contains(upgradeButton3)) {
+            upgradeButton3.setStyle("-fx-text-fill:"+rareTextColor);
+            rareList.remove(upgradeButton3);
+        }
+        else if (legendaryList.contains(upgradeButton3)) {
+            upgradeButton3.setStyle("-fx-text-fill:"+legendaryTextColor);
+            legendaryList.remove(upgradeButton3);
+        }
         upgradeButton3.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
         upgradeButton3.setText(upgradeButton3.getName());
-        upgradeButton3.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
         upgradeButton3.setOnAction(event -> {
             upgradeButton3.applyUpgrades(ball, platform, player);
             SceneManager.getInstance().levelUp();

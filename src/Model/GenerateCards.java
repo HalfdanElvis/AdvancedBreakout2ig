@@ -16,11 +16,11 @@ public class GenerateCards {
 
     public static ArrayList<Card> generateRareCards() {
         ArrayList<Card> cardList = new ArrayList<Card>();
-        cardList.add(new Card("Sniper", 2, 0, 1, 0, 0, 0, 0));
+        cardList.add(new Card("Sniper", 2, 0, 1, 0.1, 0, 0, 0));
         cardList.add(new Card("+Platform Width", 0, 0, 0, 0, 0, 10, 0));
-        cardList.add(new Card("Canonball", 1, 0, 1, 10, 0, 0, 0));
+        cardList.add(new Card("Cannonball", 2, 0, 0, 10, 0, 0, 0));
         cardList.add(new Card("++Attack", 2, 0, 0, 0, 0, 0, 0));
-        cardList.add(new Card("++Pierce", 0, 0, 1, 0, 0, 0, 0));
+        cardList.add(new Card("++Pierce", 0, 0, 2, 0, 0, 0, 0));
         cardList.add(new Card("++Lives", 0, 0, 0, 0, 0, 0, 2));
         return cardList;
     }

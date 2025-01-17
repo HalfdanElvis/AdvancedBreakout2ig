@@ -13,10 +13,10 @@ public class Ball extends Circle {
     private double angle;
     private int combo = 0;
     private boolean inPlatform = false;
-    private static double defaultRadius = 20;
+    private static double initialRadius = 20;
 
     public Ball (Platform platform){
-        super(platform.getX()+platform.getWidth()/2, platform.getY()-defaultRadius, defaultRadius);
+        super(platform.getX()+platform.getWidth()/2, platform.getY()-initialRadius, initialRadius);
         Image ballIcon = new Image("/resources/SlimeSprite.png");
         setFill(new ImagePattern(ballIcon));
         randomizeAngle();
@@ -61,6 +61,9 @@ public class Ball extends Circle {
     public void addVelocity(double velocity) { this.velocity += velocity; }
 
     public void addRadius(double n) { this.setRadius(this.getRadius()+n); }
+    public static double getInitialBallRadius() {
+        return initialRadius;
+    }
 
     public double getCurrentPierce() { return this.currentPierce; }
     public void setCurrentPierce(double piercing) { this.currentPierce = piercing; }
@@ -70,11 +73,9 @@ public class Ball extends Circle {
         this.currentPierce = maxPierce;
     }
 
-    // HVOR BLIR DEN HER BRUGT????
     public void addOGVelocity(double n) {
         this.ogVelocity += n;
     }
-    
 
     public void addCombo() {
         this.combo++;
