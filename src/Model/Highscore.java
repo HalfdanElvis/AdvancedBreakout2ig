@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,14 +22,26 @@ public class Highscore {
             highscoreWrite.close();
 
         } catch (IOException e){
-            System.out.println("Error in writing highscore");
-            e.printStackTrace();
+            File file = new File(pathToFile);
+            System.out.println("hej");
+            try {
+                file.createNewFile();
+            } catch (IOException e1) {
+            }
         }
     }
     public static void readHighscore(){
-        Path path = Paths.get("Score.java").toAbsolutePath().getParent();
+        Path path = Paths.get("Highscore.java").toAbsolutePath().getParent();
         String pathToFile=String.valueOf(path);
         pathToFile = pathToFile+"/src/resources/Highscore.txt";
+        File file = new File(pathToFile);
+        if (!file.isFile()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         try{
             String highscores = Files.readString(Paths.get(pathToFile)); //this line is the problem
             String dividers = "\n";
@@ -46,7 +59,6 @@ public class Highscore {
             }
             
         } catch(IOException e){
-            System.out.println("Error in reading highscore");
             e.printStackTrace();
         }
         for (int i = 0; i<arrayHighscore.length; i++){

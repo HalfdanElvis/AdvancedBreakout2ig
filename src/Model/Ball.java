@@ -17,7 +17,7 @@ public class Ball extends Circle {
 
     public Ball (Platform platform){
         super(platform.getX()+platform.getWidth()/2, platform.getY()-defaultRadius, defaultRadius);
-        Image ballIcon = new Image("\\resources\\SlimeSprite.png");
+        Image ballIcon = new Image("/resources/SlimeSprite.png");
         setFill(new ImagePattern(ballIcon));
         randomizeAngle();
     }

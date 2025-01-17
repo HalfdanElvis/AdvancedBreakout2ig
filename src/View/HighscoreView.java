@@ -21,7 +21,6 @@ public class HighscoreView extends Pane{
         bg.setFitWidth(OptionsModel.getSceneWidth());
         bg.setFitHeight(OptionsModel.getSceneHeight());
 
-
         Highscore.readHighscore();
         String[] Highscores = Highscore.getHighscore();
         Highscores = Highscore.arrayRankArrange(Highscores);
@@ -82,6 +81,7 @@ public class HighscoreView extends Pane{
                 highscoreBox2.getChildren().addAll(labelname);
             }
         }
+        
         VBox highscoreBox3 = new VBox();
         highscoreBox3.getStyleClass().add("vbox");
         if(Highscores.length<=10 || Highscores.length>10){
