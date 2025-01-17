@@ -10,7 +10,7 @@ public class Highscore {
     static String[] arrayHighscore;
     
     public static void writeHighscore(Player player){
-        Path path = Paths.get("Score.java").toAbsolutePath().getParent();
+        Path path = Paths.get("Highscore.java").toAbsolutePath().getParent();
         String pathToFile=String.valueOf(path);
         pathToFile = pathToFile+"/src/resources/Highscore.txt";
         String score = ""+(long)(player.getCurrentScore());
