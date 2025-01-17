@@ -6,80 +6,60 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Score {
-    static String[] arrayHighScore;
-
-    // Tør ikke pille, forstår det ikke
-    public static void scoreAdder(Block block, Player player, int combo){
-        player.updateCurrentScore((long) (block.getScore()+combo*block.getScore()*0.5));
-    }
+public class Highscore {
+    static String[] arrayHighscore;
     
-    public static void writeHighScore(Player player){
+    public static void writeHighscore(Player player){
         Path path = Paths.get("Score.java").toAbsolutePath().getParent();
         String pathToFile=String.valueOf(path);
-        pathToFile = pathToFile+"/src/resources/HighScore.txt";
+        pathToFile = pathToFile+"/src/resources/Highscore.txt";
         String score = ""+(long)(player.getCurrentScore());
         String name = player.getName();
         try{
-            FileWriter highScoreWrite = new FileWriter(pathToFile, true);
-            highScoreWrite.write(name+"="+score+"\n");
-            highScoreWrite.close();
+            FileWriter highscoreWrite = new FileWriter(pathToFile, true);
+            highscoreWrite.write(name+"="+score+"\n");
+            highscoreWrite.close();
 
         } catch (IOException e){
             System.out.println("Error in writing highscore");
             e.printStackTrace();
         }
     }
-    public static void readHighScore(){
+    public static void readHighscore(){
         Path path = Paths.get("Score.java").toAbsolutePath().getParent();
         String pathToFile=String.valueOf(path);
-        pathToFile = pathToFile+"/src/resources/HighScore.txt";
+        pathToFile = pathToFile+"/src/resources/Highscore.txt";
         try{
             String highscores = Files.readString(Paths.get(pathToFile)); //this line is the problem
             String dividers = "\n";
-            arrayHighScore = highscores.split(dividers);
+            arrayHighscore = highscores.split(dividers);
 
-            if (arrayHighScore.length<10){
+            if (arrayHighscore.length<10){
                 String[] tempArr = new String[10];
-                for (int i = 0; i<arrayHighScore.length;i++){
-                    tempArr[i] = arrayHighScore[i];
+                for (int i = 0; i<arrayHighscore.length;i++){
+                    tempArr[i] = arrayHighscore[i];
                 }
-                for (int i = arrayHighScore.length;i<10;i++){
+                for (int i = arrayHighscore.length;i<10;i++){
                     tempArr[i]="";
                 }
-                arrayHighScore = tempArr;
+                arrayHighscore = tempArr;
             }
             
         } catch(IOException e){
             System.out.println("Error in reading highscore");
             e.printStackTrace();
         }
-        for (int i = 0; i<arrayHighScore.length; i++){
-            if (cleanString(arrayHighScore[i]).length()>6){
-                System.out.println("Only names of 5 letters are allowed in line " +(i+1));
-                arrayHighScore[i]="Slimy=0000";
-            }
-            if (arrayHighScore[i].isEmpty() == true){
-                arrayHighScore[i] = "Slime=0000";
+        for (int i = 0; i<arrayHighscore.length; i++){
+            if (arrayHighscore[i].isEmpty() == true){
+                arrayHighscore[i] = "Slime=0000";
             }
         }
     }
-    public static boolean containsNonLetters(String str) {
-        return !str.matches("[a-z A-Z 0-9]+");
-    }
-    public static long stringToInt(String s){
-        long clean = Long.parseLong(s.replaceAll("\\D+",""));
-        return clean;
-    }
-    public static String cleanString(String string){
-        String clean = string.replaceAll("[0-9]","") ;
-        clean = clean.replace(".","");
-        return clean;
-    }
+
     public static String[] arrayRankArrange(String[] string){
         long[] arrInt = new long[string.length];
         for (int l=0; l<string.length;l++){
-            String scores[] = arrayHighScore[l].split("=");
+            String scores[] = arrayHighscore[l].split("=");
             String scoreStr = scores[1];
             Long score = Long.valueOf(scoreStr.trim());
             arrInt[l] = score;
@@ -102,6 +82,6 @@ public class Score {
     }
         
     public static String[] getHighscore(){
-        return arrayHighScore;
+        return arrayHighscore;
     }
 }

@@ -43,7 +43,7 @@ public class CollisionManager {
                     SceneManager.getInstance().playBlockBreakSFX();
 
                     // Increases Score and Combo
-                    Score.scoreAdder(blockList.get(i), gameView.getPlayer(), ball.getCombo());
+                    gameView.getPlayer().updateCurrentScore((long) (block.getScore()+ball.getCombo()*block.getScore()*0.5));
                     ball.addCombo();
 
                     // Remove Block
