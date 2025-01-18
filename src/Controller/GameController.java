@@ -43,20 +43,22 @@ public class GameController {
             gameView.upgradeScreenShow();
             gameplay.pause();
         }
+        else {
 
-        // Updates ball and platform position
-        ball.updatePosition();
-        gameView.getPlatform().updatePosition();
+            // Updates ball and platform position
+            ball.updatePosition();
+            gameView.getPlatform().updatePosition();
 
-        // Checks balls collisions
-        CollisionManager.checkBorderCollision(ball, gameView);
-        CollisionManager.blockCollision(ball, gameView.getBlockList(), gameView);
-        CollisionManager.collisionWithPlatform(ball, gameView.getPlatform());
+            // Checks balls collisions
+            CollisionManager.checkBorderCollision(ball, gameView);
+            CollisionManager.blockCollision(ball, gameView.getBlockList(), gameView);
+            CollisionManager.collisionWithPlatform(ball, gameView.getPlatform());
 
-        gameView.updateHUD();
+            gameView.updateHUD();
 
-        // Increases ball speed
-        ball.setVelocity(ball.getVelocity()+(ball.getVelocity()*0.0001));
+            // Increases ball speed
+            ball.setVelocity(ball.getVelocity()+(ball.getVelocity()*0.0001));
+        }
 
     }
 

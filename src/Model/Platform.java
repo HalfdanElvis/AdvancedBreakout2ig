@@ -1,6 +1,8 @@
 package Model;
 
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 public class Platform extends Rectangle {
@@ -16,7 +18,9 @@ public class Platform extends Rectangle {
 
     public Platform() {
         super(initialX, initialY, initialPlatformWidth, initialPlatformHeight);
-        setFill(Color.DARKGRAY); 
+        Image image = new Image("/resources/Platform.png");
+        ImagePattern pattern = new ImagePattern(image);
+        setFill(pattern); 
     }
 
     public void updatePosition() {

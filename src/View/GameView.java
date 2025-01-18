@@ -237,6 +237,7 @@ public class GameView extends Pane{
 
     public void newLevel() {
         player.levelUp();
+        ball.levelUp();
         upgradeScreen.setVisible(false);
         upgradeTitle.setVisible(false);
 

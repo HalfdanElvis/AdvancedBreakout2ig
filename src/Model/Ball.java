@@ -79,6 +79,10 @@ public class Ball extends Circle {
         this.currentPierce = maxPierce;
     }
 
+    public void levelUp() {
+        ogVelocity += initialVelocity*0.005;
+    }
+    
     public void addOGVelocity(double n) {
         this.ogVelocity += n;
     }
@@ -100,7 +104,6 @@ public class Ball extends Circle {
         resetCombo();
         setX(platform.getX()+(platform.getWidth()/2));
         setY(platform.getY()-getRadius());
-        ogVelocity += initialVelocity*0.005;
         setVelocity(ogVelocity);
         this.currentPierce = maxPierce;
         randomizeAngle();
