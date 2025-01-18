@@ -8,8 +8,9 @@ public class Platform extends Rectangle {
     private static final double initialPlatformHeight = OptionsModel.getSceneHeight() / 30;
     private static final double initialX = OptionsModel.getSceneWidth() / 2 - initialPlatformWidth / 2;
     private static final double initialY = OptionsModel.getSceneHeight() * 0.8;
+    private static final double initialVelocity = OptionsModel.getSceneHeight()*0.003 + OptionsModel.getSceneHeight()*0.002;
 
-    private double velocity = 4;
+    private double velocity = initialVelocity;
     private boolean isMovingLeft;
     private boolean isMovingRight;
 
@@ -24,6 +25,11 @@ public class Platform extends Rectangle {
         }
         if (isMovingRight()) {
             setX(getX() + velocity);
+        }
+        if (getX() < 0) {
+
+        } else if (getX() + getWidth()/2 > OptionsModel.getSceneWidth()) {
+            setX(OptionsModel.getSceneWidth() - getWidth()/2);
         }
         if (getX() < -getWidth()/2) {
             setX(-getWidth()/2);
@@ -46,8 +52,8 @@ public class Platform extends Rectangle {
         return initialPlatformWidth;
     }
 
-    public static double getIntialPlatformHeight() {
-        return initialPlatformHeight;
+    public static double getInitialPlatformVelocity() {
+        return initialVelocity;
     }
 
     //Resets Platforms position and size when changing level

@@ -20,7 +20,7 @@ public class Block extends Rectangle {
     }
 
     public void updateOpacity() {
-        this.setOpacity(Math.sqrt(hp/originalHp));
+        this.setOpacity(Math.max(Math.sqrt(hp/originalHp), 0.3));
     }
 
     public void looseHp(double attack) {

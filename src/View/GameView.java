@@ -187,67 +187,9 @@ public class GameView extends Pane{
         rareList = Model.GenerateCards.generateRareCards();
         legendaryList = Model.GenerateCards.generateLegendaryCards();
 
-        Card upgradeButton1 = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
-        upgradeButton1.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
-        if (commonList.contains(upgradeButton1)) {
-            upgradeButton1.setStyle("-fx-text-fill:"+commonTextColor);
-            commonList.remove(upgradeButton1);
-        }
-        else if (rareList.contains(upgradeButton1)) {
-            upgradeButton1.setStyle("-fx-text-fill:"+rareTextColor);
-            rareList.remove(upgradeButton1);
-        }
-        else if (legendaryList.contains(upgradeButton1)) {
-            upgradeButton1.setStyle("-fx-text-fill:"+legendaryTextColor);
-            legendaryList.remove(upgradeButton1);
-        } 
-        upgradeButton1.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
-        upgradeButton1.setText(upgradeButton1.getName());
-        upgradeButton1.setOnAction(event -> {
-            upgradeButton1.applyUpgrades(ball, platform, player);
-            SceneManager.getInstance().levelUp();
-        });
-        Card upgradeButton2 = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
-        upgradeButton2.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
-        if (commonList.contains(upgradeButton2)) {
-            upgradeButton2.setStyle("-fx-text-fill:"+commonTextColor);
-            commonList.remove(upgradeButton2);
-        }
-        else if (rareList.contains(upgradeButton2)) {
-            upgradeButton2.setStyle("-fx-text-fill:"+rareTextColor);
-            rareList.remove(upgradeButton2);
-        }
-        else if (legendaryList.contains(upgradeButton2)) {
-            upgradeButton2.setStyle("-fx-text-fill:"+legendaryTextColor);
-            legendaryList.remove(upgradeButton2);
-        }
-        upgradeButton2.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
-        upgradeButton2.setText(upgradeButton2.getName());
-        upgradeButton2.setOnAction(event -> {
-            upgradeButton2.applyUpgrades(ball, platform, player);
-            SceneManager.getInstance().levelUp();
-        });
-
-        Card upgradeButton3 = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
-        upgradeButton3.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
-        if (commonList.contains(upgradeButton3)) {
-            upgradeButton3.setStyle("-fx-text-fill:"+commonTextColor);
-            commonList.remove(upgradeButton3);
-        }
-        else if (rareList.contains(upgradeButton3)) {
-            upgradeButton3.setStyle("-fx-text-fill:"+rareTextColor);
-            rareList.remove(upgradeButton3);
-        }
-        else if (legendaryList.contains(upgradeButton3)) {
-            upgradeButton3.setStyle("-fx-text-fill:"+legendaryTextColor);
-            legendaryList.remove(upgradeButton3);
-        }
-        upgradeButton3.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
-        upgradeButton3.setText(upgradeButton3.getName());
-        upgradeButton3.setOnAction(event -> {
-            upgradeButton3.applyUpgrades(ball, platform, player);
-            SceneManager.getInstance().levelUp();
-        });
+        Card upgradeButton1 = initializeUpgradeButton();
+        Card upgradeButton2 = initializeUpgradeButton();
+        Card upgradeButton3 = initializeUpgradeButton();
 
         upgradeScreen = new HBox(upgradeButton1, upgradeButton2, upgradeButton3);
         upgradeScreen.setPrefSize(sceneWidth, sceneHeight);
@@ -261,6 +203,31 @@ public class GameView extends Pane{
         upgradeTitle.setVisible(false);
         upgradeTitle.setAlignment(Pos.CENTER);    
         
+    }
+
+    public Card initializeUpgradeButton() {
+        Card button = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
+        button.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+        if (commonList.contains(button)) {
+            button.setStyle("-fx-text-fill:"+commonTextColor);
+            commonList.remove(button);
+        }
+        else if (rareList.contains(button)) {
+            button.setStyle("-fx-text-fill:"+rareTextColor);
+            rareList.remove(button);
+        }
+        else if (legendaryList.contains(button)) {
+            button.setStyle("-fx-text-fill:"+legendaryTextColor);
+            legendaryList.remove(button);
+        } 
+        button.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
+        button.setText(button.getName());
+        button.setOnAction(event -> {
+            button.applyUpgrades(ball, platform, player);
+            SceneManager.getInstance().levelUp();
+        });
+
+        return button;
     }
 
     public void upgradeScreenShow() {

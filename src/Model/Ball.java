@@ -13,7 +13,9 @@ public class Ball extends Circle {
     private double angle;
     private int combo = 0;
     private boolean inPlatform = false;
-    private static double initialRadius = 20;
+    
+    private static double initialRadius = OptionsModel.getSceneHeight()*0.015 + OptionsModel.getSceneHeight()*0.01;
+    private static final double initialVelocity = OptionsModel.getSceneHeight()*0.0024 + OptionsModel.getSceneHeight()*0.0016;
 
     public Ball (Platform platform){
         super(platform.getX()+platform.getWidth()/2, platform.getY()-initialRadius, initialRadius);
@@ -65,6 +67,10 @@ public class Ball extends Circle {
         return initialRadius;
     }
 
+    public static double getInitialBallVelocity() {
+        return initialVelocity;
+    }
+
     public double getCurrentPierce() { return this.currentPierce; }
     public void setCurrentPierce(double piercing) { this.currentPierce = piercing; }
     public double getMaxPierce() { return maxPierce; }
@@ -94,6 +100,7 @@ public class Ball extends Circle {
         resetCombo();
         setX(platform.getX()+(platform.getWidth()/2));
         setY(platform.getY()-getRadius());
+        ogVelocity += initialVelocity*0.005;
         setVelocity(ogVelocity);
         this.currentPierce = maxPierce;
         randomizeAngle();
