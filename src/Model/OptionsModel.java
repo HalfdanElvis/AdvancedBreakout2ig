@@ -42,7 +42,6 @@ public class OptionsModel {
             optionsMap.put(parts[0].trim(), Double.valueOf(parts[1].trim()));
             line = lineReader.readLine();
         }
-
         lineReader.close();
     }
 
@@ -65,7 +64,7 @@ public class OptionsModel {
 
     public static double getMusicVolume() { return optionsMap.get("MusicVolume"); }
     public static void setMusicVolume(double volume) { optionsMap.put("MusicVolume", volume); }
-    
+
     public static double getSoundVolume() { return optionsMap.get("SoundVolume"); }
     public static void setSoundVolume(double volume) { optionsMap.put("SoundVolume", volume); }
 }
