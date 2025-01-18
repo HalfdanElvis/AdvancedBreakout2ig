@@ -165,16 +165,6 @@ public class CollisionManager {
 
                     // Finds how far along the platform the collison is
                     double collisionPoint = ((ball.getX()-platform.getX())/platform.getWidth());
-                    System.out.println(collisionPoint);
-
-                    // Inlcudes the balls size in the calculation of angle on edges
-                    /*
-                    if(collisionPoint < 0.3){
-                        collisionPoint += ball.getRadius()/platform.getWidth();
-                    } else if (collisionPoint > 0.7){
-                        collisionPoint -= ball.getRadius()/platform.getWidth();
-                    }
-                    */ 
 
                     // Sets the balls new angle
                     ball.setAngle(-(1 - collisionPoint) * 180);
