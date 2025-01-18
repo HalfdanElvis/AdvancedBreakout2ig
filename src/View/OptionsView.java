@@ -22,51 +22,33 @@ public class OptionsView extends Pane{
         bg.setFitWidth(sceneWidth);
         bg.setFitHeight(sceneHeight);
 
-
-
-        musicSlider.setPrefWidth(sceneWidth*0.2);
-        musicSlider.setLayoutX(sceneWidth*0.2);
-        musicSlider.setLayoutY(sceneHeight*0.45);
-        musicSlider.setShowTickLabels(true);
-        musicSlider.setMajorTickUnit(0.2);
-        musicSlider.setShowTickMarks(true);
-        musicSlider.setSnapToTicks(true);
-
         Label musicLabel = new Label("Music Volume");
-        musicLabel.setStyle("-fx-font-size: 24px; -fx-text-fill: white; "
-                   + "-fx-background-color: rgba(0, 0, 0, 0.8); "   
-                   + "-fx-background-radius: 2px;");
-        musicLabel.setLayoutX(sceneWidth * 0.2);
-        musicLabel.setLayoutY(sceneHeight * 0.4); 
-
+        initializeSliders(musicSlider, musicLabel, sceneWidth*0.2);
         musicSlider.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
 
-
-        soundSlider.setPrefWidth(sceneWidth*0.2);
-        soundSlider.setLayoutX(sceneWidth*0.6);
-        soundSlider.setLayoutY(sceneHeight*0.45);
-        soundSlider.setShowTickLabels(true);
-        soundSlider.setMajorTickUnit(0.2);
-        soundSlider.setShowTickMarks(true);
-        soundSlider.setSnapToTicks(true);
-
         Label soundLabel = new Label("Sound Volume");
-        soundLabel.setStyle("-fx-font-size: 24px; -fx-text-fill: white; "
-                   + "-fx-background-color: rgba(0, 0, 0, 0.8); "   
-                   + "-fx-background-radius: 2px;");
-        soundLabel.setLayoutX(sceneWidth * 0.6);
-        soundLabel.setLayoutY(sceneHeight * 0.4); 
-
+        initializeSliders(soundSlider, soundLabel, sceneWidth*0.6);
         soundSlider.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
         
         getChildren().addAll(bg, backButton, musicSlider, musicLabel, soundSlider, soundLabel);
     }
 
-    public static double getMusicVolume() {
-        return musicSlider.getValue();
+    public static void initializeSliders(Slider slider, Label label, double x) {
+        slider.setPrefWidth(sceneWidth*0.2);
+        slider.setLayoutX(x);
+        slider.setLayoutY(sceneHeight*0.45);
+        slider.setShowTickLabels(true);
+        slider.setMajorTickUnit(0.2);
+        slider.setShowTickMarks(true);
+        slider.setSnapToTicks(true);
+        
+        label.setStyle("-fx-font-size: 24px; -fx-text-fill: white; "
+        + "-fx-background-color: rgba(0, 0, 0, 0.8); "   
+        + "-fx-background-radius: 2px;");
+        label.setLayoutX(x);
+        label.setLayoutY(sceneHeight * 0.4); 
     }
 
-    public static double getSoundVolume() {
-        return soundSlider.getValue();
-    }
+    public static double getMusicVolume() { return musicSlider.getValue(); }
+    public static double getSoundVolume() { return soundSlider.getValue(); }
 }

@@ -60,7 +60,7 @@ public class CollisionManager {
 
                 } else {
                     // Removes HP from the block if the ball isn't able to break it
-                    block.looseHp(ball.getAttack());
+                    block.loseHp(ball.getAttack());
                     block.updateOpacity();
                     ball.setCurrentPierce(0);
                 }

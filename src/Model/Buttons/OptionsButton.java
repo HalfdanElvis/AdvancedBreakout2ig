@@ -25,5 +25,4 @@ public class OptionsButton extends Button{
             SceneManager.getInstance().switchToOptionsView();
         });
     }
-
 }

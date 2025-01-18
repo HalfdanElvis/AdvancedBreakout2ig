@@ -10,8 +10,6 @@ import javafx.scene.layout.VBox;
 
 public class HighscoreView extends Pane{
 
-    // SKAL METHODS I SEDRISÆST
-
     public HighscoreView() {
 
         BackButton backButton = new BackButton();
@@ -36,13 +34,14 @@ public class HighscoreView extends Pane{
         pane.setPrefSize(paneWidth, paneHeight);
         pane.setLayoutX(OptionsModel.getSceneWidth()/2-paneWidth/2);
         pane.setLayoutY(OptionsModel.getSceneHeight()/2.5);
-        //getStylesheets().add(getClass().getResource("/resources/stylesVBox.css").toExternalForm());
+
+        //initializing the vbox containing ranks
         VBox highscoreBox1 = new VBox();
         highscoreBox1.getStyleClass().add("vbox");
-        if (Highscores.length<=10 || Highscores.length>10){
-            highscoreBox1.setSpacing(10); // Afstand mellem elementer
-            highscoreBox1.setLayoutX(paneWidth/8); // Placering på skærmen (x-koordinat)
-            highscoreBox1.setLayoutY(pane.getHeight()); // Placering på skærmen (y-koordinat)
+        if (Highscores.length <= 10 || Highscores.length > 10){
+            highscoreBox1.setSpacing(10);
+            highscoreBox1.setLayoutX(paneWidth/8);
+            highscoreBox1.setLayoutY(pane.getHeight());
 
             Label headRank=new Label("RANK");
             headRank.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
@@ -50,7 +49,7 @@ public class HighscoreView extends Pane{
             headRank.setMaxHeight(30);;
             highscoreBox1.getChildren().add(headRank);
 
-            for (int i=1; i<Math.min(11,Highscores.length+1);i++){
+            for (int i = 1; i < Math.min(11, Highscores.length+1); i++){
                 String rank = String.valueOf(i);
                 Label labelrank = new Label(rank);
                 labelrank.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
@@ -59,19 +58,22 @@ public class HighscoreView extends Pane{
                 highscoreBox1.getChildren().add(labelrank);
             }
         }
+
+        //initializing the vbox containing names
         VBox highscoreBox2 = new VBox();
         highscoreBox2.getStyleClass().add("vbox");
-        if(Highscores.length<=10 || Highscores.length>10){
+        if (Highscores.length <= 10 || Highscores.length > 10){
             highscoreBox2.setSpacing(10);
-            highscoreBox2.setLayoutX(paneWidth/2.8); // Placering på skærmen (x-koordinat)
-            highscoreBox2.setLayoutY(pane.getHeight()); // Placering på skærmen (y-koordinat)
+            highscoreBox2.setLayoutX(paneWidth/2.8);
+            highscoreBox2.setLayoutY(pane.getHeight());
+
             Label headName =new Label("Name");
             headName.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
             headName.setMinHeight(30);
             headName.setMaxHeight(30);
             highscoreBox2.getChildren().add(headName);
             
-            for (int i=0; i<Math.min(10,Highscores.length);i++){
+            for (int i = 0; i < Math.min(10, Highscores.length); i++){
                 String names[] = Highscores[i].split("=");
                 String name = names[0];
                 Label labelname = new Label(name);
@@ -82,24 +84,25 @@ public class HighscoreView extends Pane{
             }
         }
         
+        //initializing the vbox containing highscores
         VBox highscoreBox3 = new VBox();
         highscoreBox3.getStyleClass().add("vbox");
-        if(Highscores.length<=10 || Highscores.length>10){
+        if (Highscores.length <= 10 || Highscores.length > 10){
             highscoreBox3.setSpacing(10);
-            highscoreBox3.setLayoutX(paneWidth/8+1.5*paneWidth/3); // Placering på skærmen (x-koordinat)
-            highscoreBox3.setLayoutY(pane.getHeight()); // Placering på skærmen (y-koordinat)
+            highscoreBox3.setLayoutX(paneWidth/8+1.5*paneWidth/3);
+            highscoreBox3.setLayoutY(pane.getHeight());
+
             Label headScore = new Label("Score");
-            headScore.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
+            headScore.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; ");
             headScore.setMinHeight(30);
             headScore.setMaxHeight(30);
             highscoreBox3.getChildren().addAll(headScore);
 
-            for (int i=0; i<Math.min(10,Highscores.length);i++){
+            for (int i = 0; i < Math.min(10, Highscores.length); i++){
                 String scores[] = Highscores[i].split("=");
                 String score = scores[1].trim();
                 Label labelscore = new Label(score);
-                if(Long.valueOf(score)>99999999){
-
+                if(Long.valueOf(score) > 99999999){
                     pane.setPrefSize(paneWidth+100, paneHeight);
                     pane.setLayoutX((OptionsModel.getSceneWidth()/2-paneWidth/2)-100/2);
                     pane.setLayoutY(OptionsModel.getSceneHeight()/4);

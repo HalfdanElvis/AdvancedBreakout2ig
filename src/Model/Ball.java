@@ -24,11 +24,11 @@ public class Ball extends Circle {
         randomizeAngle();
     }
 
-    //Ball Movement
     public void randomizeAngle() {
         this.angle = (int)-120+(Math.random()*60);
     }
 
+    //Updates position based on angle
     public void updatePosition() {
         setX(getX() + this.velocity*Math.cos(this.angle*Math.PI/180));
         setY(getY() + this.velocity*Math.sin(this.angle*Math.PI/180));
@@ -43,7 +43,7 @@ public class Ball extends Circle {
         angle *= -1;
     }
 
-    // Getters Setters & Adders
+    // Getters, Setters & Adders
     public double getAngle() { return angle; }
     public void setAngle(double angle){ this.angle = angle; }
     
@@ -63,13 +63,10 @@ public class Ball extends Circle {
     public void addVelocity(double velocity) { this.velocity += velocity; }
 
     public void addRadius(double n) { this.setRadius(this.getRadius()+n); }
-    public static double getInitialBallRadius() {
-        return initialRadius;
-    }
 
-    public static double getInitialBallVelocity() {
-        return initialVelocity;
-    }
+    public static double getInitialBallRadius() { return initialRadius; }
+
+    public static double getInitialBallVelocity() { return initialVelocity; }
 
     public double getCurrentPierce() { return this.currentPierce; }
     public void setCurrentPierce(double piercing) { this.currentPierce = piercing; }
@@ -79,27 +76,15 @@ public class Ball extends Circle {
         this.currentPierce = maxPierce;
     }
 
-    public void levelUp() {
-        ogVelocity += initialVelocity*0.005;
-    }
+    public void levelUp() { ogVelocity += initialVelocity*0.005; }
     
-    public void addOGVelocity(double n) {
-        this.ogVelocity += n;
-    }
+    public void addOGVelocity(double n) { this.ogVelocity += n; }
 
-    public void addCombo() {
-        this.combo++;
-    }
+    public void addCombo() { this.combo++; }
+    public void resetCombo() { this.combo = 0; }
+    public int getCombo() { return this.combo; }
 
-    public void resetCombo() {
-        this.combo = 0;
-    }
-
-    public int getCombo() {
-        return this.combo;
-    }
-
-    //Resets Balls position and Velocity when changing level
+    //Resets Balls position and velocity when changing level
     public void reset(Platform platform) {
         resetCombo();
         setX(platform.getX()+(platform.getWidth()/2));

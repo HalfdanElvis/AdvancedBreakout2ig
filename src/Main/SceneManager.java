@@ -131,7 +131,6 @@ public class SceneManager {
         try {
             OptionsModel.updateOptions();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         hit.setVolume(OptionsModel.getSoundVolume());

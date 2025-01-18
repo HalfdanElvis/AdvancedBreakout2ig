@@ -70,7 +70,7 @@ public class GameController {
             gameView.getPlayer().setLives(gameView.getPlayer().getLives()-1);
             gameView.updateHUD();
 
-            // Checks Player life to se if game continous
+            // Checks Player life to see if game continues
             if (gameView.killIfDead()) {
             } else {
                 gameView.lifeLost();
@@ -116,6 +116,7 @@ public class GameController {
     public void rightPressed() { gameView.getPlatform().setMovingRight(true); }
     public void leftReleased() { gameView.getPlatform().setMovingLeft(false); }
     public void rightReleased() { gameView.getPlatform().setMovingRight(false); }
+    
     public void spacePressed() {
         if (!gameRunning) {
             gameplay.play();  

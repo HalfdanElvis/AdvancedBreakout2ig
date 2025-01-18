@@ -22,17 +22,21 @@ public class OptionsModel {
         return optionsMap;
     }
 
+    //loads options from options.txt
     public static void loadOptions() throws IOException {
         File file = new File(filePath);
+        //chooses default settings if options.txt doesn't exist
         if (!file.isFile()) {
             optionsMap = defaultSettings();
             return;
         }
+
         optionsMap = new LinkedHashMap<>();
         FileReader fileReader = new FileReader(file);
         BufferedReader lineReader = new BufferedReader(fileReader);
         String line = lineReader.readLine();
 
+        //reads options.txt line by line, where the part before = is which option and the part after = is the value
         while (line != null) {
             String[] parts = line.split("=", 2);
             optionsMap.put(parts[0].trim(), Double.valueOf(parts[1].trim()));
@@ -42,6 +46,7 @@ public class OptionsModel {
         lineReader.close();
     }
 
+    //updates options.txt based on current settings
     public static void updateOptions() throws IOException {
         File file = new File(filePath);
         if (!file.isFile()) {
@@ -55,24 +60,12 @@ public class OptionsModel {
         writer.close();
     }
 
-    public static double getSceneWidth() {
-        return sceneWidth;
-    }
-    public static double getSceneHeight() {
-        return sceneHeight;
-    }
-    public static double getMusicVolume() {
-        return optionsMap.get("MusicVolume");
-    }
-    public static double getSoundVolume() {
-        return optionsMap.get("SoundVolume");
-    }
+    public static double getSceneWidth() { return sceneWidth; }
+    public static double getSceneHeight() { return sceneHeight; }
 
-    public static void setMusicVolume(double volume) {
-        optionsMap.put("MusicVolume", volume);
-    }
-
-    public static void setSoundVolume(double volume) {
-        optionsMap.put("SoundVolume", volume);
-    }
+    public static double getMusicVolume() { return optionsMap.get("MusicVolume"); }
+    public static void setMusicVolume(double volume) { optionsMap.put("MusicVolume", volume); }
+    
+    public static double getSoundVolume() { return optionsMap.get("SoundVolume"); }
+    public static void setSoundVolume(double volume) { optionsMap.put("SoundVolume", volume); }
 }

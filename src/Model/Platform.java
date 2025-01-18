@@ -6,10 +6,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 public class Platform extends Rectangle {
+    //default properties, also used for upgrades
     private static final double initialPlatformWidth = OptionsModel.getSceneWidth() / 5;
     private static final double initialPlatformHeight = OptionsModel.getSceneHeight() / 30;
     private static final double initialX = OptionsModel.getSceneWidth() / 2 - initialPlatformWidth / 2;
     private static final double initialY = OptionsModel.getSceneHeight() * 0.8;
+    //making velocity scale with screensize (ball would otherwise be slower on larger screens), also used for upgrades
     private static final double initialVelocity = OptionsModel.getSceneHeight()*0.003 + OptionsModel.getSceneHeight()*0.002;
 
     private double velocity = initialVelocity;
@@ -29,11 +31,7 @@ public class Platform extends Rectangle {
         if (isMovingRight()) {
             setX(getX() + velocity);
         }
-        if (getX() < 0) {
-
-        } else if (getX() + getWidth()/2 > OptionsModel.getSceneWidth()) {
-            setX(OptionsModel.getSceneWidth() - getWidth()/2);
-        }
+        //stops more than half of the platform from going into the sides
         if (getX() < -getWidth()/2) {
             setX(-getWidth()/2);
         } else if (getX() + getWidth()/2 > OptionsModel.getSceneWidth()) {
@@ -51,13 +49,8 @@ public class Platform extends Rectangle {
     public boolean isMovingRight() { return isMovingRight; }
     public void setMovingRight(boolean bool) { this.isMovingRight = bool; }
 
-    public static double getIntialPlatformWidth() {
-        return initialPlatformWidth;
-    }
-
-    public static double getInitialPlatformVelocity() {
-        return initialVelocity;
-    }
+    public static double getIntialPlatformWidth() { return initialPlatformWidth;}
+    public static double getInitialPlatformVelocity() { return initialVelocity; }
 
     //Resets Platforms position and size when changing level
     public void reset() {

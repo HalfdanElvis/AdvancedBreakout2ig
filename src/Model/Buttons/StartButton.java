@@ -26,5 +26,4 @@ public class StartButton extends Button{
             SceneManager.getInstance().switchToGameView();
         });
     }
-
 }

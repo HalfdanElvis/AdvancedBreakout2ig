@@ -56,11 +56,8 @@ public class GameView extends Pane{
         bg.setFitWidth(sceneWidth);
         bg.setFitHeight(sceneHeight);
 
-
-        //Platform
         platform = new Platform();
 
-        //Ball
         ball = new Ball(platform);
 
         //UpgradeScreen
@@ -101,7 +98,6 @@ public class GameView extends Pane{
         score.setText("Score " + (long)(player.getCurrentScore()));
     }
 
-    // De her overlays skal lige gennemgås men er sgu for træt rn, men tænker man kan lave et style sheet eller lign, det hele skal bare organiseres
     public void initializeNameScreen() {
         nameScreen = new VBox();
         Text text = new Text("Name:");
@@ -273,9 +269,11 @@ public class GameView extends Pane{
     public Ball getBall() { return ball; }
     public ArrayList<Block> getBlockList() { return blockList; }
     public Player getPlayer() { return player; }
+
     public ArrayList<Card> getCommonList() { return commonList; }
     public ArrayList<Card> getRareList() { return rareList; }
     public ArrayList<Card> getLegendaryList() { return legendaryList; }
+
     public VBox getUpgradeTitle() { return upgradeTitle; }
     public HBox getUpgradeScreen() { return upgradeScreen; }
     public double getHudHeight() { return HUDBackground.getHeight(); }

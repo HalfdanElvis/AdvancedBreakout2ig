@@ -44,16 +44,17 @@ public class Player {
         }
     }
 
-    // Getters Setters & Adders
+    // Getters Setters
     public double getCurrentScore() { return currentscore; }
     public double getHighscore() { return highscore; }
 
     public int getLives() { return lives; }
     public int getMaxLives() { return maxLives; }
     public void setLives(int lives) { this.lives = lives; }
-    public void removeLive() { this.lives--; } // Stavet forkert
+
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
+    
     public int getLevel() { return this.level; }
     public void levelUp() { this.level++; } 
 }

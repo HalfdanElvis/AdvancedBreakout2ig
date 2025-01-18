@@ -23,9 +23,7 @@ public class Block extends Rectangle {
         this.setOpacity(Math.max(Math.sqrt(hp/originalHp), 0.3));
     }
 
-    public void looseHp(double attack) {
-        hp -= attack;
-    }
+    public void loseHp(double attack) { hp -= attack; }
 
     // Getters
     public double getHp() { return hp; }

@@ -24,7 +24,5 @@ public class HighscoreButton extends Button{
             SceneManager.getInstance().playbuttonPressSFX();
             SceneManager.getInstance().switchToHighscoreView();
         });
-
     }
-
 }

@@ -23,7 +23,6 @@ public class BackButton extends Button{
         setOnAction(event -> {
             SceneManager.getInstance().playbuttonPressSFX();
             SceneManager.getInstance().switchToMainMenuView();
-            
         });
     }
 
