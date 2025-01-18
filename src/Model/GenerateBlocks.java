@@ -5,8 +5,8 @@ import java.util.ArrayList;
 //generates blocks randomly based on current level
 public class GenerateBlocks {
     public static ArrayList<Block> generateBlocks(int level) {
-        int rows = (int) (4+level/5.0);
-        int columns = (int) (5+level/5.0);
+        double rows = 4 + Math.floor(level/5.0);
+        double columns = 5 + Math.floor(level/5.0);
         ArrayList<Block> blockList = new ArrayList<>();
         //spacing between blocks
         double space = Model.OptionsModel.getSceneWidth()/Math.sqrt(columns)/Math.sqrt(rows)/40;
@@ -19,8 +19,8 @@ public class GenerateBlocks {
             probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.sqrt(level/5)-5+i/rows*10, 0.9);
         }
         //generates the blocks based on the probabilities
-        for (int i = 0; i < columns; i++) {
-            for (int j = 0; j < rows; j++) {
+        for (double i = 0; i < columns; i++) {
+            for (double j = 0; j < rows; j++) {
                 //generates empty spaces randomly
                 if (Math.random() > Math.exp(-Math.pow(j, 2)/150/Math.pow(level, 0.25)*10/rows)) {
                     continue;
