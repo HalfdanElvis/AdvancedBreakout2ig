@@ -1,0 +1,2 @@
+MusicVolume=0.2
+SoundVolume=1.0
