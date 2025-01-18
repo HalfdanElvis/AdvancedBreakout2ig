@@ -19,8 +19,7 @@ public class Platform extends Rectangle {
     public Platform() {
         super(initialX, initialY, initialPlatformWidth, initialPlatformHeight);
         Image image = new Image("/resources/Platform.png");
-        ImagePattern pattern = new ImagePattern(image);
-        setFill(pattern); 
+        setFill(new ImagePattern(image)); 
     }
 
     public void updatePosition() {
