@@ -17,7 +17,7 @@ public class OptionsView extends Pane{
 
         BackButton backButton = new BackButton();
 
-        Image image = new Image("/resources/MainMenuBackground.png");
+        Image image = new Image("/resources/OptionsBackground.png");
         ImageView bg = new ImageView(image);
         bg.setFitWidth(sceneWidth);
         bg.setFitHeight(sceneHeight);

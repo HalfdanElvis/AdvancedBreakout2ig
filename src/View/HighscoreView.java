@@ -16,7 +16,7 @@ public class HighscoreView extends Pane{
 
         BackButton backButton = new BackButton();
 
-        Image image = new Image("/resources/MainMenuBackground.png");
+        Image image = new Image("/resources/HighscoreBackground.png");
         ImageView bg = new ImageView(image);
         bg.setFitWidth(OptionsModel.getSceneWidth());
         bg.setFitHeight(OptionsModel.getSceneHeight());
@@ -26,7 +26,7 @@ public class HighscoreView extends Pane{
         Highscores = Highscore.arrayRankArrange(Highscores);
 
         Pane pane = new Pane();
-        int paneWidth = 300;
+        int paneWidth = 350;
         int paneHeight = 450;
         pane.setStyle("-fx-background-color: rgba(0, 0, 0, 0.75); "
         + "-fx-border-color:rgb(117, 117, 117); "
@@ -35,7 +35,7 @@ public class HighscoreView extends Pane{
         + "-fx-background-radius: 10; ");
         pane.setPrefSize(paneWidth, paneHeight);
         pane.setLayoutX(OptionsModel.getSceneWidth()/2-paneWidth/2);
-        pane.setLayoutY(OptionsModel.getSceneHeight()/4);
+        pane.setLayoutY(OptionsModel.getSceneHeight()/2.5);
         //getStylesheets().add(getClass().getResource("/resources/stylesVBox.css").toExternalForm());
         VBox highscoreBox1 = new VBox();
         highscoreBox1.getStyleClass().add("vbox");
