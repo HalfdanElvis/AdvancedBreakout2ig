@@ -23,7 +23,12 @@ Requirements:
 Java and JavaFX installed
 
 
+Recommended screen resolution:
+1920x1080 (Full HD)
+
+
 Credits:
 Halfdan, Jesper, Marcus & Simon
 Atari (Creator of original breakout)
+Rogue (Creator of roguelike genre)
 

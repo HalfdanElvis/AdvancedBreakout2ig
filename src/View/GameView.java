@@ -120,12 +120,11 @@ public class GameView extends Pane{
         nameField.setMinWidth(sceneWidth / 5);
 
         int maxLength = 5;
-
         nameField.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() > maxLength) {
-                return null; // Reject the change if it exceeds the limit
+            if (change.getControlNewText().length() > maxLength) { //limits name length to maxLength characters
+                return null;
             }
-            return change; // Accept the change otherwise
+            return change;
         }));
 
         nameField.setOnAction(event -> {
