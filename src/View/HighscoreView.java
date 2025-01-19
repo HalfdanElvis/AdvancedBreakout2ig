@@ -26,8 +26,8 @@ public class HighscoreView extends Pane{
         Highscores = Highscore.arrayRankArrange(Highscores);
 
         Pane pane = new Pane();
-        int paneWidth = 350;
-        int paneHeight = 450;
+        double paneWidth = OptionsModel.getSceneWidth()/4;
+        double paneHeight = OptionsModel.getSceneHeight()/1.9;
         pane.setStyle("-fx-background-color: rgba(0, 0, 0, 0.75); "
         + "-fx-border-color:rgb(117, 117, 117); "
         + "-fx-border-width: 4; "
@@ -102,9 +102,9 @@ public class HighscoreView extends Pane{
             String score = scores[1].trim();
             Label labelscore = new Label(score);
             if(Long.valueOf(score) > 99999999){
-                pane.setPrefSize(paneWidth+100, paneHeight);
-                pane.setLayoutX((OptionsModel.getSceneWidth()/2-paneWidth/2)-100/2);
-                pane.setLayoutY(OptionsModel.getSceneHeight()/4);
+                pane.setPrefSize(paneWidth+paneWidth/8, paneHeight);
+                pane.setLayoutX((OptionsModel.getSceneWidth()/2-paneWidth/2)-(paneWidth/8)/2);
+                pane.setLayoutY(OptionsModel.getSceneHeight()/2.5);
             }
             labelscore.setStyle("-fx-font-size: 24px; -fx-text-fill: white;-fx-font-family: monospace; "); // Styling
             labelscore.setMinHeight(30);
@@ -114,5 +114,8 @@ public class HighscoreView extends Pane{
 
         pane.getChildren().addAll(highscoreBox1,highscoreBox2,highscoreBox3);
         getChildren().addAll(bg, backButton,pane);
+    }
+    public void VBoxLabel(int number, String label){
+
     }
 }
