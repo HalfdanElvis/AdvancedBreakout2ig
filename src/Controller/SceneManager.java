@@ -1,5 +1,5 @@
 //this files creates and switches between scenes (menus) based on user input and controls the music
-//written by Halfdan
+//written by Mostly Halfdan, but Marcus wrote updateVolume and Jesper wrote levelup
 
 package Controller;
 
@@ -103,8 +103,8 @@ public class SceneManager {
             musicPlayer.setVolume(OptionsModel.getMusicVolume());
             musicPlayer.play();
         }
-
-        if (musicPlayer != null){
+        
+        else {
             if (!(this.musicFilePath.equals(musicFilePath))) {
                 this.musicFilePath = musicFilePath;
                 stopMusic();
