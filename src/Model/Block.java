@@ -20,7 +20,6 @@ public class Block extends Rectangle {
         this.originalHp = this.hp;
         this.score = scoreArray[tier] + (long) (scoreArray[tier] * level/20.0);
         this.setFill(colorArray[tier]);
-        this.setOpacity(height);
     }
 
     public void updateOpacity() {

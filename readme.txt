@@ -21,6 +21,7 @@ Run the following command in the terminal: java -jar YOURPATH\SirSlimesAdventure
 
 Requirements:
 Java and JavaFX installed
+If program doesn't run, try using Azul Zulu 22
 
 
 Recommended screen resolution:
@@ -29,6 +30,6 @@ Recommended screen resolution:
 
 Credits:
 Halfdan, Jesper, Marcus & Simon
-Atari (Creator of original breakout)
-Rogue (Creator of roguelike genre)
+Steve Wozniak (Creator of original breakout)
+Michael Toy & Glenn Wichmann (Creators of Rogue, and thereby roguelike genre)
 
