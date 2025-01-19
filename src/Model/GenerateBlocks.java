@@ -1,3 +1,5 @@
+//this file generates blocks based on current level using gaussian probability
+//written by Marcus
 package Model;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class GenerateBlocks {
         double blockWidth = Model.OptionsModel.getSceneWidth()/columns-space;
         double blockHeight = Model.OptionsModel.getSceneHeight()/3/rows-space;
 
-        //generates probabilities for each row
+        //generates probabilities for each row, so the top rows have the most powerful blocks
         double[][] probabilities = new double[(int) rows][Block.getMaxTier()];
         for (int i = 0; i < probabilities.length; i++) {
             probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.sqrt(level/5)-5+i/rows*10, 0.9);

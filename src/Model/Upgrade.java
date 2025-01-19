@@ -1,3 +1,5 @@
+//this file randomly chooses an upgrade card to pick
+//written by Jesper
 package Model;
 
 import java.util.ArrayList;
