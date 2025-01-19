@@ -1,11 +1,12 @@
 package Model;
 
-import Main.SceneManager;
 import View.GameView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+
+import Controller.SceneManager;
 
 public class CollisionManager {
     public static void blockCollision(Ball ball, ArrayList<Block> blockList, GameView gameView) {

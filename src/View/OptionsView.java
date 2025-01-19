@@ -1,7 +1,7 @@
 package View;
 
-import Model.Buttons.BackButton;
 import Model.OptionsModel;
+import View.Buttons.BackButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;

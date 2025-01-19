@@ -1,6 +1,6 @@
-package Model.Buttons;
+package View.Buttons;
 
-import Main.SceneManager;
+import Controller.SceneManager;
 import Model.OptionsModel;
 import javafx.scene.control.Button;
 
@@ -21,8 +21,7 @@ public class OptionsButton extends Button{
         setLayoutX(buttonX);
         setLayoutY(buttonY);
         setOnAction(event -> {
-            SceneManager.getInstance().playbuttonPressSFX();
-            SceneManager.getInstance().switchToOptionsView();
+            SceneManager.optionsButtonPressed();
         });
     }
 }

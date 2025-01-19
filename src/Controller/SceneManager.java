@@ -1,6 +1,5 @@
-package Main;
+package Controller;
 
-import Controller.*;
 import Model.OptionsModel;
 import View.*;
 import java.io.IOException;
@@ -151,4 +150,30 @@ public class SceneManager {
         buttonPress.play();
     }
 
+    //button presses
+    public static void backButtonPressed() {
+        getInstance().playbuttonPressSFX();
+        getInstance().switchToMainMenuView();
+    }
+
+    public static void exitButtonPressed() {
+        getInstance().playbuttonPressSFX();
+        System.exit(0);
+    }
+
+    public static void highscoreButtonPressed() {
+        getInstance().playbuttonPressSFX();
+        getInstance().switchToHighscoreView();
+    }
+
+    public static void optionsButtonPressed() {
+        getInstance().playbuttonPressSFX();
+        getInstance().switchToOptionsView();
+    }
+
+    public static void startButtonPressed() {
+        getInstance().playbuttonPressSFX();
+        getInstance().switchToGameView();
+    }
+    
 }

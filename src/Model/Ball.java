@@ -14,11 +14,11 @@ public class Ball extends Circle {
     private int combo = 0;
     private boolean inPlatform = false;
     
-    private static double initialRadius = OptionsModel.getSceneHeight()*0.015 + OptionsModel.getSceneHeight()*0.01;
-    private static final double initialVelocity = OptionsModel.getSceneHeight()*0.0024 + OptionsModel.getSceneHeight()*0.0016;
+    private static final double INITIAL_RADIUS = OptionsModel.getSceneHeight()*0.015 + OptionsModel.getSceneHeight()*0.01;
+    private static final double INITIAL_VELOCITY = OptionsModel.getSceneHeight()*0.0024 + OptionsModel.getSceneHeight()*0.0016;
 
     public Ball (Platform platform){
-        super(platform.getX()+platform.getWidth()/2, platform.getY()-initialRadius, initialRadius);
+        super(platform.getX()+platform.getWidth()/2, platform.getY()-INITIAL_RADIUS, INITIAL_RADIUS);
         Image ballIcon = new Image("/resources/SlimeSprite.png");
         setFill(new ImagePattern(ballIcon));
         randomizeAngle();
@@ -64,9 +64,9 @@ public class Ball extends Circle {
 
     public void addRadius(double n) { this.setRadius(this.getRadius()+n); }
 
-    public static double getInitialBallRadius() { return initialRadius; }
+    public static double getInitialBallRadius() { return INITIAL_RADIUS; }
 
-    public static double getInitialBallVelocity() { return initialVelocity; }
+    public static double getInitialBallVelocity() { return INITIAL_VELOCITY; }
 
     public double getCurrentPierce() { return this.currentPierce; }
     public void setCurrentPierce(double piercing) { this.currentPierce = piercing; }
@@ -76,7 +76,7 @@ public class Ball extends Circle {
         this.currentPierce = maxPierce;
     }
 
-    public void levelUp() { ogVelocity += initialVelocity*0.005; }
+    public void levelUp() { ogVelocity += INITIAL_VELOCITY*0.005; }
     
     public void addOGVelocity(double n) { this.ogVelocity += n; }
 

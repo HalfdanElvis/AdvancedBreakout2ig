@@ -1,8 +1,10 @@
 package View;
-import Main.SceneManager;
 import Model.*;
-import Model.Buttons.*;
+import View.Buttons.*;
+
 import java.util.ArrayList;
+
+import Controller.SceneManager;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -41,6 +43,7 @@ public class GameView extends Pane{
     private Text level;
     private Text score;
     private Text playerName;
+    private Text combo;
     private Rectangle HUDBackground;
 
     public GameView (){
@@ -79,16 +82,18 @@ public class GameView extends Pane{
     public void initializeHUD(){
         HUDBackground = new Rectangle(0,0, sceneWidth, sceneHeight*0.03);
         HUDBackground.setFill(Color.WHITE);
-        lives = new Text(sceneWidth*0.75, 24, "Lives: " + player.getLives()+"/"+player.getMaxLives());
+        lives = new Text(sceneWidth*0.8, 24, "Lives: " + player.getLives()+"/"+player.getMaxLives());
         lives.setFill(Color.BLACK);
-        level = new Text(sceneWidth*0.5,24,"Level: " + (player.getLevel()));
-        score = new Text(sceneWidth*0.25,24,"Score: " + (int)(player.getCurrentScore()));
+        level = new Text(sceneWidth*0.6,24,"Level: " + (player.getLevel()));
+        score = new Text(sceneWidth*0.4,24,"Score: " + (player.getCurrentScore()));
+        combo = new Text(sceneWidth*0.2,24,"Combo: " + (ball.getCombo()));
         playerName = new Text(2,24,player.getName());
         playerName.setStyle("-fx-font-size: 24px;");
         lives.setStyle("-fx-font-size: 24px;");
         level.setStyle("-fx-font-size: 24px;");
         score.setStyle("-fx-font-size: 24px;");
-        getChildren().addAll(HUDBackground, playerName, lives, level, score);
+        combo.setStyle("-fx-font-size: 24px;");
+        getChildren().addAll(HUDBackground, playerName, lives, level, score, combo);
     }
 
     public void updateHUD() {
@@ -96,6 +101,7 @@ public class GameView extends Pane{
         lives.setText("Lives: " + player.getLives()+"/"+player.getMaxLives());
         level.setText("Level: " + (player.getLevel()));
         score.setText("Score " + (long)(player.getCurrentScore()));
+        combo.setText("Combo: " + (ball.getCombo()));
     }
 
     public void initializeNameScreen() {

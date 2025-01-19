@@ -1,7 +1,7 @@
 package View;
 
-import Model.Buttons.*;
 import Model.OptionsModel;
+import View.Buttons.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
