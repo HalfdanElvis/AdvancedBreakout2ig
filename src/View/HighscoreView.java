@@ -101,6 +101,8 @@ public class HighscoreView extends Pane{
             String scores[] = Highscores[i].split("=");
             String score = scores[1].trim();
             Label labelscore = new Label(score);
+            //If the score is very big we make the pane wider to make it fit.
+            //We still want it to possible to go out of the pane if the number is big enough because that is awesome
             if(Long.valueOf(score) > 99999999){
                 pane.setPrefSize(paneWidth+paneWidth/8, paneHeight);
                 pane.setLayoutX((OptionsModel.getSceneWidth()/2-paneWidth/2)-(paneWidth/8)/2);
