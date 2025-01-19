@@ -5,8 +5,6 @@
 package Model;
 
 import View.GameView;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
