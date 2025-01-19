@@ -64,7 +64,7 @@ public class HighscoreView extends Pane{
         VBox highscoreBox2 = new VBox();
         highscoreBox2.getStyleClass().add("vbox");
         highscoreBox2.setSpacing(10);
-        highscoreBox2.setLayoutX(paneWidth/2.8);
+        highscoreBox2.setLayoutX(paneWidth/8+paneWidth/4);
         highscoreBox2.setLayoutY(pane.getHeight());
 
         Label headName =new Label("Name");
@@ -88,7 +88,7 @@ public class HighscoreView extends Pane{
         VBox highscoreBox3 = new VBox();
         highscoreBox3.getStyleClass().add("vbox");
         highscoreBox3.setSpacing(10);
-        highscoreBox3.setLayoutX(paneWidth/8+1.5*paneWidth/3);
+        highscoreBox3.setLayoutX(paneWidth/8+paneWidth/2);
         highscoreBox3.setLayoutY(pane.getHeight());
 
         Label headScore = new Label("Score");
