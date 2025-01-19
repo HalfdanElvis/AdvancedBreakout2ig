@@ -1,3 +1,5 @@
+//this file controls how the main menu looks
+//written by Halfdan
 package View;
 
 import Model.OptionsModel;

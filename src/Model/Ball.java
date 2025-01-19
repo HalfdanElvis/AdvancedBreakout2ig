@@ -1,3 +1,5 @@
+//this file keeps track of the current state of the ball
+//written by mostly Jesper (little bit of everyone)
 package Model;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;

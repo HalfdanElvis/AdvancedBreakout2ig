@@ -1,3 +1,5 @@
+//this file controls how the start button looks
+//written by Halfdan
 package View.Buttons;
 
 import Controller.SceneManager;
