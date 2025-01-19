@@ -47,8 +47,7 @@ public class GameController {
             gameView.getChildren().add(gameView.getUpgradeTitle());
             gameView.upgradeScreenShow();
             gameplay.pause();
-        }
-        else {
+        } else {
 
             // Updates ball and platform position
             ball.updatePosition();
@@ -64,7 +63,6 @@ public class GameController {
             // Increases ball speed
             ball.setVelocity(ball.getVelocity()+(ball.getVelocity()*0.0001));
         }
-
     }
 
  public void ballOutofBounds() {
