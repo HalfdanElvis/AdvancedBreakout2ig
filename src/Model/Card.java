@@ -1,5 +1,6 @@
 //this file allows cards to be constructed and for the card to apply its' upgrades
 //written by Jesper
+
 package Model;
 import javafx.scene.control.Button;
 

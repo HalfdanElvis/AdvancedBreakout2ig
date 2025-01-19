@@ -1,5 +1,6 @@
 //this file allows the platform to be constructed and keeps track of its state
 //written by Halfdan & Marcus
+
 package Model;
 
 import javafx.scene.image.Image;

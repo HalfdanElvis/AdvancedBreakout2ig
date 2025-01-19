@@ -2,12 +2,11 @@
 //the ball and the platform, and the ball and the borders, and decides what to do when collisions happen
 //written by everyone, Halfdan made platform collision, Jesper & Marcus made block collision
 //and Simon made the angle system
+
 package Model;
 
 import View.GameView;
-
 import java.util.ArrayList;
-
 import Controller.SceneManager;
 
 public class CollisionManager {
@@ -49,7 +48,7 @@ public class CollisionManager {
                     SceneManager.getInstance().playBlockBreakSFX();
 
                     // Increases Score and Combo
-                    gameView.getPlayer().updateCurrentScore((long) (block.getScore()+ball.getCombo()*block.getScore()*0.5));
+                    gameView.getPlayer().updateScore((long) (block.getScore()+ball.getCombo()*block.getScore()*0.5));
                     ball.addCombo();
 
                     // Remove Block

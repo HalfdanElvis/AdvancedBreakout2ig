@@ -1,5 +1,6 @@
 //this file controls how the highscore menu looks
 //written by Simon
+
 package View;
 
 import Model.*;

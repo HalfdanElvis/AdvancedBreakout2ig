@@ -1,10 +1,10 @@
 //this initializes the window, loads the options and starts the program
 //written by Halfdan
+
 package Main;
 
 import Model.OptionsModel;
 import java.io.IOException;
-
 import Controller.SceneManager;
 import javafx.application.Application;
 import javafx.scene.image.Image;

@@ -1,6 +1,7 @@
 //this file controls how the options menu look
 //it also allows the scenemanger to get the current sound/music volume
 //written by Halfdan & Marcus
+
 package View;
 
 import Model.OptionsModel;

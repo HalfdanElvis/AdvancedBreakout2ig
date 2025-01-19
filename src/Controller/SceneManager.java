@@ -1,5 +1,6 @@
 //this files creates and switches between scenes (menus) based on user input and controls the music
 //written by Halfdan
+
 package Controller;
 
 import Model.OptionsModel;

@@ -1,6 +1,7 @@
 //this file reads and writes from highscore.txt to keep track of highscores locally
 //it also sorts the highscores so it only shows top 10
 //written by Simon
+
 package Model;
 
 import java.io.File;

@@ -2,6 +2,7 @@
 //and creates a new level. It also takes input from the player when the game is running
 //and decides what to do with the input
 //written by mostly Halfdan (little bit of everyone)
+
 package Controller;
 
 import Model.*;

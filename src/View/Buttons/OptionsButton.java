@@ -1,5 +1,6 @@
 //this file controls how the options button looks
 //written by Halfdan
+
 package View.Buttons;
 
 import Controller.SceneManager;

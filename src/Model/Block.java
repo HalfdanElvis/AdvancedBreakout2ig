@@ -1,6 +1,7 @@
 //this file keeps track of the current state of a block
 //and how much hp, score and what color each tier has
 //written by Marcus
+
 package Model;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

@@ -1,12 +1,12 @@
 //this file shows the game while its running, and allows the player to type their name.
 //it also shows the death screen and upgrade screen when appropriate
 //written by Halfdan & Jesper
+
 package View;
+
 import Model.*;
 import View.Buttons.*;
-
 import java.util.ArrayList;
-
 import Controller.SceneManager;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,7 +20,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-
 
 public class GameView extends Pane{
     private Player player;
