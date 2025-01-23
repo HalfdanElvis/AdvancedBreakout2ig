@@ -1,5 +1,4 @@
 //this file contains all the possible upgrade cards and what they upgrade
-//written by Jesper & Marcus
 
 package Model;
 

@@ -1,7 +1,6 @@
 //this files manages the timeline while the game is running, checks if the player has died
 //and creates a new level. It also takes input from the player when the game is running
 //and decides what to do with the input
-//written by mostly Halfdan (little bit of everyone)
 
 package Controller;
 

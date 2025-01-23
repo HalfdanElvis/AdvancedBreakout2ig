@@ -1,5 +1,4 @@
 //this file reads and writes from options.txt so the program saves the user's settings
-//writte by Marcus
 
 package Model;
 

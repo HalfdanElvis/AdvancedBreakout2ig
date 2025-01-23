@@ -1,6 +1,5 @@
 //this file shows the game while its running, and allows the player to type their name.
 //it also shows the death screen and upgrade screen when appropriate
-//written by Halfdan & Jesper
 
 package View;
 

@@ -1,5 +1,4 @@
 //this files creates and switches between scenes (menus) based on user input and controls the music
-//written by Mostly Halfdan, but Marcus wrote updateVolume and Jesper wrote levelup
 
 package Controller;
 

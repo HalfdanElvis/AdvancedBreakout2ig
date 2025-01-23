@@ -29,7 +29,6 @@ Recommended screen resolution:
 
 
 Credits:
-Halfdan, Jesper, Marcus & Simon
 Steve Wozniak (Creator of original breakout)
 Michael Toy & Glenn Wichmann (Creators of Rogue, and thereby roguelike genre)
 

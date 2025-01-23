@@ -1,5 +1,4 @@
 //this initializes the window, loads the options and starts the program
-//written by Halfdan
 
 package Main;
 

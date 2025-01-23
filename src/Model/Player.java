@@ -1,6 +1,5 @@
 //this file allows a player to be constructed, so the game can keep track of
 //how many lives they have left, and their score
-//written by Jesper
 
 package Model;
 

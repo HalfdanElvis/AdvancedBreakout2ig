@@ -1,5 +1,4 @@
 //this file controls how the back button looks
-//written by Halfdan
 
 package View.Buttons;
 

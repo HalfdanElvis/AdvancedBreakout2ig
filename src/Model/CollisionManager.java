@@ -1,7 +1,5 @@
 //this files manages collisions between the ball and all the blocks,
 //the ball and the platform, and the ball and the borders, and decides what to do when collisions happen
-//written by everyone, Halfdan made platform collision, Jesper & Marcus made block collision
-//and Simon made the angle system
 
 package Model;
 
