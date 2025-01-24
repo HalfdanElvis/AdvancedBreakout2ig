@@ -6,6 +6,8 @@ package View;
 import Model.*;
 import View.Buttons.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import Controller.SceneManager;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -27,7 +29,9 @@ public class GameView extends Pane{
     private ArrayList<Block> blockList;
     private ArrayList<Card> commonList;
     private ArrayList<Card> rareList;
+    private ArrayList<Card> epicList;
     private ArrayList<Card> legendaryList;
+    private ArrayList<Card> mythicList;
     private VBox deathScreen;
     private HBox upgradeScreen;
     private VBox upgradeTitle;
@@ -35,9 +39,8 @@ public class GameView extends Pane{
     private double sceneHeight = OptionsModel.getSceneHeight();
     private VBox nameScreen;
     private TextField nameField;
-    private String commonTextColor = "rgb(241, 241, 241)";
-    private String rareTextColor = "rgb(40, 183, 255)";
-    private String legendaryTextColor = "rgb(253, 229, 43)";
+    private String[] colorArray = {"rgb(241, 241, 241)","rgb(40, 183, 255)",
+    "rgb(195, 16, 222)","rgb(253, 229, 43)","rgb(202, 16, 16)"};
 
     // HUD
     private Text lives;
@@ -187,7 +190,9 @@ public class GameView extends Pane{
 
         commonList = Model.GenerateCards.generateCommonCards();
         rareList = Model.GenerateCards.generateRareCards();
+        epicList = Model.GenerateCards.generateEpicCards();
         legendaryList = Model.GenerateCards.generateLegendaryCards();
+        mythicList = Model.GenerateCards.generateMythicCards();
 
         Card upgradeButton1 = initializeUpgradeButton();
         Card upgradeButton2 = initializeUpgradeButton();
@@ -208,20 +213,18 @@ public class GameView extends Pane{
     }
 
     public Card initializeUpgradeButton() {
-        Card button = Model.Upgrade.getUpgrade(commonList, rareList, legendaryList);
+        List<ArrayList<Card>> cardListArray = new ArrayList<>();
+        cardListArray.add(commonList);
+        cardListArray.add(rareList);
+        cardListArray.add(epicList);
+        cardListArray.add(legendaryList);
+        cardListArray.add(mythicList);
+        Card button = Model.Upgrade.getUpgrade(cardListArray, player.getLuck());
         button.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
-        if (commonList.contains(button)) {
-            button.setStyle("-fx-text-fill:"+commonTextColor);
-            commonList.remove(button);
-        }
-        else if (rareList.contains(button)) {
-            button.setStyle("-fx-text-fill:"+rareTextColor);
-            rareList.remove(button);
-        }
-        else if (legendaryList.contains(button)) {
-            button.setStyle("-fx-text-fill:"+legendaryTextColor);
-            legendaryList.remove(button);
-        } 
+        int rarity = button.getRarity();
+        button.setStyle("-fx-text-fill:"+colorArray[rarity]);
+        cardListArray.get(rarity).remove(button);
+        
         button.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()/2);
         button.setText(button.getName());
         button.setOnAction(event -> {

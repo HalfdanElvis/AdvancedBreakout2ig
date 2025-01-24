@@ -10,12 +10,14 @@ public class Player {
     private int maxLives;
     private int level;
     private String name;
+    private double luck;
 
     public Player() {
         this.score = 0;
         this.maxLives = 3;
         this.lives = 3;
         this.level = 1;
+        this.luck = 0;
     }
 
     public void addLives(int extra) {
@@ -43,4 +45,7 @@ public class Player {
     
     public int getLevel() { return this.level; }
     public void levelUp() { this.level++; } 
+
+    public double getLuck() { return this.luck; }
+    public void addLuck(double luck) { this.luck += luck; }
 }

@@ -8,34 +8,72 @@ public class GenerateCards {
 
     public static ArrayList<Card> generateCommonCards() {
         ArrayList<Card> cardList = new ArrayList<Card>();
-        cardList.add(new Card("+Attack", 1, 0, 0, 0, 0, 0, 0));
-        cardList.add(new Card("+Pierce", 0, 0, 1, 0, 0, 0, 0));
-        cardList.add(new Card("+Size", 0, 0, 0, Ball.getInitialBallRadius()*0.12, 0, 0, 0));
-        cardList.add(new Card("+Platform Speed", 0, 0, 0, 0, Platform.getInitialPlatformVelocity()*0.1, 0, 0));
-        cardList.add(new Card("+Lives", 0, 0, 0, 0, 0, 0, 1));
+        cardList.add(new Card("+Attack", "attack = 1"));
+        cardList.add(new Card("+Pierce", "pierce = 1"));
+        cardList.add(new Card("+Size", "ballsize = 0.12"));
+        cardList.add(new Card("+Platform Speed", "platformSpeed = 0.1"));
+        cardList.add(new Card("+Lives", "lives = 1"));
+        cardList.add(new Card("+Luck", "luck = 0.9"));
+        cardList.add(new Card("+Crit Dmg", "critdamage = 0.3"));
+        for (int i = 0; i < cardList.size(); i++) {
+            cardList.get(i).setRarity(0);
+        }
         return cardList;
     }
 
     public static ArrayList<Card> generateRareCards() {
         ArrayList<Card> cardList = new ArrayList<Card>();
-        cardList.add(new Card("Sniper", 2, Ball.getInitialBallVelocity()*0.03, 1, 0, 0, 0, 0));
-        cardList.add(new Card("+Platform Width", 0, 0, 0, 0, 0, Platform.getIntialPlatformWidth()*0.12, 0));
-        cardList.add(new Card("Cannonball", 2, 0, 0, Ball.getInitialBallRadius()*0.08, 0, 0, 0));
-        cardList.add(new Card("++Attack", 2, 0, 0, 0, 0, 0, 0));
-        cardList.add(new Card("++Pierce", 0, 0, 2, 0, 0, 0, 0));
-        cardList.add(new Card("++Lives", 0, 0, 0, 0, 0, 0, 2));
+        cardList.add(new Card("+Platform Width", "platformwidth = 0.12"));
+        cardList.add(new Card("Cannonball", "attack = 2, ballsize = 0.06"));
+        cardList.add(new Card("++Attack", "attack = 2"));
+        cardList.add(new Card("++Pierce", "pierce = 2"));
+        cardList.add(new Card("++Lives", "lives = 2"));
+        cardList.add(new Card("Slow Ball", "ballspeed = -0.1"));
+        cardList.add(new Card("+Crit Chance", "critchance = 0.08"));
+        for (int i = 0; i < cardList.size(); i++) {
+            cardList.get(i).setRarity(1);
+        }
+        return cardList;
+    }
+
+    public static ArrayList<Card> generateEpicCards() {
+        ArrayList<Card> cardList = new ArrayList<Card>();
+        cardList.add(new Card("Sniper", "attack = 3, ballspeed = 0.03, pierce = 1"));
+        cardList.add(new Card("Wreckingball", "attack = 1, pierce = 3, ballsize = 0.08"));
+        cardList.add(new Card("+++Attack", "attack = 3"));
+        cardList.add(new Card("++Luck", "luck = 1.6"));
+        cardList.add(new Card("Crit Master", "critchance = 0.06, critdamage = 0.5"));
+        for (int i = 0; i < cardList.size(); i++) {
+            cardList.get(i).setRarity(2);
+        }
         return cardList;
     }
 
     public static ArrayList<Card> generateLegendaryCards() {
         ArrayList<Card> cardList = new ArrayList<Card>();
-        cardList.add(new Card("Rocketman", 3, 0, 2, 0, 0, 0, 0));
-        cardList.add(new Card("Better Platform", 0, 0, 0, 0, Platform.getInitialPlatformVelocity()*0.08, Platform.getIntialPlatformWidth()*0.16, 0));
-        cardList.add(new Card("Bullet", 5, Ball.getInitialBallVelocity()*0.07, 1, 0, 0, 0, 0));
-        cardList.add(new Card("Wreckingball", 0, 0, 3, 2, 1, 0, 0));
-        cardList.add(new Card("Devil's Deal", 8, Ball.getInitialBallVelocity()*0.05, 0, -Ball.getInitialBallRadius()*0.15, 0, 0, -2));
-        cardList.add(new Card("Giant", 1, -Ball.getInitialBallVelocity()*0.1, 0, Ball.getInitialBallRadius()*0.25, 0, 0, 0));
-        cardList.add(new Card("Full Hp", 0, 0, 0, 0, 0, 0, 0));
+        cardList.add(new Card("Rocketman", "attack = 3, pierce = 2"));
+        cardList.add(new Card("Better Platform", "platformspeed = 0.08, platformwidth = 0.16"));
+        cardList.add(new Card("Bullet", "attack = 5, ballspeed = 0.07, pierce = 1"));
+        cardList.add(new Card("Devil's Deal", "attack = 8, ballspeed = 0.05, ballsize = -0.15, lives = -2"));
+        cardList.add(new Card("Giant", "attack = 1, ballspeed = -0.08, ballsize = 0.25"));
+        cardList.add(new Card("Full Hp", "fullhp = 1"));
+        for (int i = 0; i < cardList.size(); i++) {
+            cardList.get(i).setRarity(3);
+        }
+        return cardList;
+    }
+
+    public static ArrayList<Card> generateMythicCards() {
+        ArrayList<Card> cardList = new ArrayList<Card>();
+        cardList.add(new Card("Railgun", "attack = 5, pierce = 3"));
+        cardList.add(new Card("Prolonged Life", "fullhp = 1, lives = 1, ballspeed = -0.07"));
+        cardList.add(new Card("Lucifer's Contract", "attack = 13, ballspeed = 0.12, ballsize = -0.23, lives = -3, critdamage = 0.66, critchance = 0.066, luck = -0.66"));
+        cardList.add(new Card("The Honored One", "attack = 4, ballsize = 0.11, critchance = 0.044, critdamage = 0.33"));
+        cardList.add(new Card("God's Blessing", "attack = 2, pierce = 2, lives = 2, ballspeed = -0.02, platformwidth = 0.02, platformspeed = 0.02, luck = 0.2, critchance = 0.02, critdamage = 0.2"));
+        
+        for (int i = 0; i < cardList.size(); i++) {
+            cardList.get(i).setRarity(4);
+        }
         return cardList;
     }
 }

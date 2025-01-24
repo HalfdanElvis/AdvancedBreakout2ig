@@ -3,25 +3,20 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Upgrade {
+    private static double[] thresholds = {0,6,7.5,9,11}; //describes rarity
+    private static Random random = new Random();
 
-    public static Card getUpgrade(ArrayList<Card> commonList, ArrayList<Card> rareList, ArrayList<Card> legendaryList) {
-        Random random = new Random();
-        double rarity = Math.random();
+    public static Card getUpgrade(List<ArrayList<Card>> cardListArray, double luck) {
+        luck = Math.pow(luck, 0.66); //controls how much luck scales
+        double[] probabilities = NormalDistribution.generateProbabilities(thresholds.length, luck, 4, thresholds);
+        //for (int i = 0; i < probabilities.length; i++) {System.out.println("tier "+i+" "+probabilities[i]);} System.out.println();
 
-        if (rarity < 0.8) { // Common Card 80% chance
-            int rand_int = random.nextInt(commonList.size());
-            return commonList.get(rand_int);
-
-        } else if (rarity < 0.95) { // Rare Card 15% Chance
-            int rand_int = random.nextInt(rareList.size());
-            return rareList.get(rand_int);
-
-        } else { // Legendary Card 5%
-            int rand_int = random.nextInt(legendaryList.size());
-            return legendaryList.get(rand_int);
-        }
+        ArrayList<Card> choosenCardList = cardListArray.get(NormalDistribution.chooseTier(probabilities));
+        int randInt = random.nextInt(choosenCardList.size());
+        return choosenCardList.get(randInt);
     }
 }

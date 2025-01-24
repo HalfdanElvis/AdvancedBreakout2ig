@@ -9,9 +9,9 @@ public class Block extends Rectangle {
     private long score;
     private double hp;
     private double originalHp;
-    private static long[] scoreArray = {10, 15, 25, 40, 60, 100, 150, 250};
-    private static long[] hpArray = {1, 2, 3, 5, 7, 10, 15, 20};
-    private static Color[] colorArray = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.VIOLET, Color.BLACK, Color.WHITE};
+    private static long[] scoreArray = {10, 15, 25, 40, 60, 100, 150, 250, 500};
+    private static long[] hpArray = {1, 2, 3, 5, 7, 10, 15, 20, 50};
+    private static Color[] colorArray = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.INDIGO, Color.VIOLET, Color.BLACK, Color.WHITE};
 
     public Block(int tier, int level, double x, double y, double width, double height) {
         super(x, y, width, height);

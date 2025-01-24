@@ -39,8 +39,9 @@ public class CollisionManager {
                     hitLeft++;
                 }
 
+                block.loseHp(ball.doDamage());
                 // Checks if the ball is able to break the block
-                if (block.getHp()-ball.getAttack() <= 0) {
+                if (block.getHp() <= 0) {
 
                     // Play sfx
                     SceneManager.getInstance().playBlockBreakSFX();
@@ -52,22 +53,24 @@ public class CollisionManager {
                     // Remove Block
                     blockList.remove(i);
                     gameView.getChildren().remove(block); 
-
                     deathCount++;
-                    
-                    // Updates the balls piercing
-                    ball.setCurrentPierce(ball.getCurrentPierce()-1);
 
                 } else {
                     // Removes HP from the block if the ball isn't able to break it
-                    block.loseHp(ball.getAttack());
-                    block.updateOpacity();
+                    block.loseHp((ball.getCurrentPierce()*0.5));
                     ball.setCurrentPierce(0);
+                    if (block.getHp() <= 0) {
+                        blockList.remove(i);
+                        gameView.getChildren().remove(block); 
+                    }
+                    else {
+                        block.updateOpacity();
+                    }
                 }
             }
         }
         //check if the ball should bounce based on blocks deleted and pierce
-        if (deathCount != hitCount || ball.getCurrentPierce()+1 < hitCount) {
+        if (deathCount != hitCount || ball.getCurrentPierce() < hitCount) {
             if (hitCount == 1) {  //if exactly 1 block was hit, checks which corner it hit and ball's current angle to determine new angle
                 //top left corner
                 if (hitLeft == 1 && hitTop == 1) {
@@ -145,6 +148,7 @@ public class CollisionManager {
                 ball.setAngle(ball.getAngle()+360);
             }
         }
+        ball.setCurrentPierce(ball.getCurrentPierce()-hitCount);
     }
 
     public static void collisionWithPlatform(Ball ball, Platform platform) {

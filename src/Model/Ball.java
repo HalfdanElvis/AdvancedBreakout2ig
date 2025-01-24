@@ -15,6 +15,8 @@ public class Ball extends Circle {
     private double angle;
     private int combo = 0;
     private boolean inPlatform = false;
+    private double critChance = 0.05;
+    private double critDamage = 1.2;
     
     private static final double INITIAL_RADIUS = OptionsModel.getSceneHeight()*0.015 + OptionsModel.getSceneHeight()*0.01;
     private static final double INITIAL_VELOCITY = OptionsModel.getSceneHeight()*0.0024 + OptionsModel.getSceneHeight()*0.0016;
@@ -45,6 +47,13 @@ public class Ball extends Circle {
         angle *= -1;
     }
 
+    public double doDamage() {
+        if (Math.random() < critChance) {
+            return attack*critDamage;
+        }
+        return attack;
+    }
+
     // Getters, Setters & Adders
     public double getAngle() { return angle; }
     public void setAngle(double angle){ this.angle = angle; }
@@ -71,7 +80,7 @@ public class Ball extends Circle {
     public static double getInitialBallVelocity() { return INITIAL_VELOCITY; }
 
     public double getCurrentPierce() { return this.currentPierce; }
-    public void setCurrentPierce(double piercing) { this.currentPierce = piercing; }
+    public void setCurrentPierce(double piercing) { this.currentPierce = Math.max(piercing,0); }
     public double getMaxPierce() { return maxPierce; }
     public void addMaxPierce(double maxPierce) {
         this.maxPierce += maxPierce;
@@ -85,6 +94,12 @@ public class Ball extends Circle {
     public void addCombo() { this.combo++; }
     public void resetCombo() { this.combo = 0; }
     public int getCombo() { return this.combo; }
+
+    public double getCritDamage() { return this.critDamage; }
+    public void addCritDamage(double damage) { this.critDamage += damage; }
+
+    public double getCritChance() { return this.critChance; }
+    public void addCritChance(double chance) { this.critChance += chance; }
 
     //Resets Balls position and velocity when changing level
     public void reset(Platform platform) {
