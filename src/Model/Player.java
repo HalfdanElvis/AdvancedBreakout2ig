@@ -34,7 +34,7 @@ public class Player {
     }
 
     // Getters Setters
-    public double getCurrentScore() { return score; }
+    public long getCurrentScore() { return score; }
 
     public int getLives() { return lives; }
     public int getMaxLives() { return maxLives; }

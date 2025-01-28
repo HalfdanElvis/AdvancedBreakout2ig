@@ -21,9 +21,7 @@ public class HighscoreView extends Pane{
         bg.setFitWidth(OptionsModel.getSceneWidth());
         bg.setFitHeight(OptionsModel.getSceneHeight());
 
-        Highscore.readHighscore();
-        String[] Highscores = Highscore.getHighscore();
-        Highscores = Highscore.arrayRankArrange(Highscores);
+        String[] Highscores = HighscoreManager.getHighscores();
 
         Pane pane = new Pane();
         double paneWidth = OptionsModel.getSceneWidth()/4;

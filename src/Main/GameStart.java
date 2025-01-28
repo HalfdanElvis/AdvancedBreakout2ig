@@ -2,6 +2,8 @@
 
 package Main;
 
+import Model.FirebaseConfig;
+import Model.HighscoreManager;
 import Model.OptionsModel;
 import java.io.IOException;
 import Controller.SceneManager;
@@ -31,6 +33,8 @@ public class GameStart extends Application{
 
     public static void main(String[] args) throws IOException {
         OptionsModel.loadOptions();
+        FirebaseConfig.initializeFirebase();
+        //String[] test = HighscoreManager.getHighscores(); for (int i = 0; i < test.length; i++) {System.out.println(test[i]);}
         launch(args);
     }
 }

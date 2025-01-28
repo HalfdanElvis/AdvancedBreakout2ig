@@ -1,0 +1,76 @@
+
+.button {
+    -fx-border-color:rgba(247, 247, 247, 0.6); 
+    -fx-border-width: 2; 
+    -fx-background-radius: 2; 
+    -fx-background-color: rgba(100, 96, 96, 0.6); 
+    -fx-font-size: 24; 
+    -fx-text-fill:rgb(241, 241, 241);
+}
+
+.button:focused {
+    -fx-border-color:rgba(247, 247, 247, 0.6); 
+    -fx-border-width: 2; 
+    -fx-background-radius: 2; 
+    -fx-background-color: rgba(0, 0, 0, 0.6); 
+    -fx-font-size: 24; 
+    -fx-text-fill:rgb(241, 241, 241);
+}
+
+
+.slider {
+    -fx-background-color: rgba(0, 0, 0, 0.801);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 5px;
+    -fx-pref-height: 70px; /* Increased height for the overall slider background */
+    -fx-pref-width: 400px; /* Increased width for the overall slider background */
+}
+
+.slider .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 50%;
+    -fx-pref-width: 25px; 
+    -fx-pref-height: 25px; 
+}
+
+.slider .track {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-radius: 5px;
+    -fx-pref-height: 20px;
+}
+
+.slider .tick-mark {
+    -fx-background-color: transparent;
+}
+
+.slider .tick-label {
+    -fx-text-fill: white; 
+    -fx-font-size: 16px;  
+}
+
+.slider .tick-labels {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.slider .value {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+
+.transparent-textfield {
+    -fx-background-color: transparent; 
+    -fx-text-fill: white;  
+    -fx-font-size: 24px;  
+    -fx-border-color: white;  
+    -fx-border-width: 2px;  
+    -fx-border-radius: 5px;  
+    -fx-padding: 10px;  
+    -fx-outline-width: 0;  
+}
+
+.transparent-textfield .text-input-text {
+    -fx-fill: white;  
+    -fx-font-size: 24px;  
+}

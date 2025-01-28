@@ -68,7 +68,7 @@ public class GenerateCards {
         cardList.add(new Card("Railgun", "attack = 5, pierce = 3"));
         cardList.add(new Card("Prolonged Life", "fullhp = 1, lives = 1, ballspeed = -0.07"));
         cardList.add(new Card("Lucifer's Contract", "attack = 13, ballspeed = 0.12, ballsize = -0.23, lives = -3, critdamage = 0.66, critchance = 0.066, luck = -0.66"));
-        cardList.add(new Card("The Honored One", "attack = 4, ballsize = 0.11, critchance = 0.044, critdamage = 0.33"));
+        cardList.add(new Card("The Honored One", "attack = 4, ballsize = 0.11, critchance = 0.055   , critdamage = 0.33"));
         cardList.add(new Card("God's Blessing", "attack = 2, pierce = 2, lives = 2, ballspeed = -0.02, platformwidth = 0.02, platformspeed = 0.02, luck = 0.2, critchance = 0.02, critdamage = 0.2"));
         
         for (int i = 0; i < cardList.size(); i++) {
