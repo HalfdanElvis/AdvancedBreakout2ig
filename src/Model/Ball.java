@@ -1,6 +1,8 @@
 //this file keeps track of the current state of the ball
 
 package Model;
+import org.checkerframework.checker.units.qual.t;
+
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -18,8 +20,8 @@ public class Ball extends Circle {
     private double critChance = 0.05;
     private double critDamage = 1.2;
     
-    private static final double INITIAL_RADIUS = OptionsModel.getSceneHeight()*0.015 + OptionsModel.getSceneHeight()*0.01;
-    private static final double INITIAL_VELOCITY = OptionsModel.getSceneHeight()*0.0024 + OptionsModel.getSceneHeight()*0.0016;
+    private static final double INITIAL_RADIUS = OptionsModel.getSceneWidth()*0.01 + OptionsModel.getSceneHeight()*0.01;
+    private static final double INITIAL_VELOCITY = OptionsModel.getSceneWidth()*0.0014 + OptionsModel.getSceneHeight()*0.0014;
 
     public Ball (Platform platform){
         super(platform.getX()+platform.getWidth()/2, platform.getY()-INITIAL_RADIUS, INITIAL_RADIUS);
@@ -87,7 +89,8 @@ public class Ball extends Circle {
         this.currentPierce = maxPierce;
     }
 
-    public void levelUp() { ogVelocity += INITIAL_VELOCITY*0.005; }
+    public void levelUp() { ogVelocity += INITIAL_VELOCITY*0.03; }
+    public void updateCurrentSpeed() { velocity += INITIAL_VELOCITY*0.00012; }
     
     public void addOGVelocity(double n) { this.ogVelocity += n; }
 

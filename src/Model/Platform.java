@@ -13,7 +13,7 @@ public class Platform extends Rectangle {
     private static final double INITIAL_X = OptionsModel.getSceneWidth() / 2 - INITIAL_PLATFORM_WIDTH / 2;
     private static final double INITIAL_Y = OptionsModel.getSceneHeight() * 0.8;
     //making velocity scale with screensize (ball would otherwise be slower on larger screens), also used for upgrades
-    private static final double INITIAL_VELOCITY = OptionsModel.getSceneHeight()*0.003 + OptionsModel.getSceneHeight()*0.002;
+    private static final double INITIAL_VELOCITY = OptionsModel.getSceneWidth()*0.002 + OptionsModel.getSceneHeight()*0.002;
 
     private double velocity = INITIAL_VELOCITY;
     private boolean isMovingLeft;
@@ -41,7 +41,9 @@ public class Platform extends Rectangle {
     }
 
     // Getters Setter & Adders
-    public void addPlatformWidth(double platformWidth) { setWidth(getWidth()+platformWidth); }
+    public void addPlatformWidth(double platformWidth) { 
+        setWidth(Math.min(getWidth() + platformWidth, OptionsModel.getSceneWidth()*0.4)); 
+    }
     public double getVelocity() { return this.velocity; }
     public void setVelocity(double velocity) { this.velocity = velocity; }
     public void addVelocity(double velocity) { this.velocity += velocity; }
@@ -55,8 +57,6 @@ public class Platform extends Rectangle {
 
     //Resets Platforms position and size when changing level
     public void reset() {
-        setWidth(Math.min(getWidth(), OptionsModel.getSceneWidth()*0.4));
-        setX(INITIAL_X);
-        setY(INITIAL_Y);
+        setX(OptionsModel.getSceneWidth() / 2 - getWidth() / 2);
     }
 }

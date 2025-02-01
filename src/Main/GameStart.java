@@ -34,7 +34,6 @@ public class GameStart extends Application{
     public static void main(String[] args) throws IOException {
         OptionsModel.loadOptions();
         FirebaseConfig.initializeFirebase();
-        //String[] test = HighscoreManager.getHighscores(); for (int i = 0; i < test.length; i++) {System.out.println(test[i]);}
         launch(args);
     }
 }

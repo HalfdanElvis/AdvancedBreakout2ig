@@ -50,8 +50,8 @@ public class GameController {
 
             // Updates ball and platform position
             ball.updatePosition();
+            ball.updateCurrentSpeed();
             gameView.getPlatform().updatePosition();
-
             // Checks balls collisions
             CollisionManager.checkBorderCollision(ball, gameView);
             CollisionManager.blockCollision(ball, gameView.getBlockList(), gameView);
@@ -59,8 +59,6 @@ public class GameController {
 
             gameView.updateHUD();
 
-            // Increases ball speed
-            ball.setVelocity(ball.getVelocity()+(ball.getVelocity()*0.0001));
         }
     }
 

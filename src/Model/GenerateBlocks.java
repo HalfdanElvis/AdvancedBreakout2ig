@@ -40,7 +40,7 @@ public class GenerateBlocks {
                     continue;
                 }
                 int tier = NormalDistribution.chooseTier(probabilities[(int) j]);
-                Block block = new Block(tier, level, (blockWidth+space)*i+space/2, (blockHeight+space)*j+space/2+OptionsModel.getSceneHeight()/6, blockWidth, blockHeight);
+                Block block = new Block(tier, level, (blockWidth+space)*i+space/2, (blockHeight+space)*j+space/2+OptionsModel.getSceneHeight()/5, blockWidth, blockHeight);
                 blockList.add(block);
             }
         }
